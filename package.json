@@ -1,0 +1,22 @@
+{
+  "name": "vue-cli-plugin-custom-tpl",
+  "version": "0.1.0",
+  "description": "Custom templates for Vue CLI 3",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natee/vue-cli-plugin-custom-tpl.git"
+  },
+  "keywords": [
+    "vue",
+    "cli",
+    "custom",
+    "template",
+    "plugin"
+  ],
+  "homepage": "https://github.com/natee/vue-cli-plugin-custom-tpl#readme",
+  "author": "Zhao Ke <kerncink@gmail.com>",
+  "license": "MIT"
+}
