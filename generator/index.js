@@ -1,54 +1,97 @@
-function renderFiles (api, opts) {
-
-  const fs = require('fs')
-
-  // 通过preset的形式配置opts.router，这里则不需要
-  const routerPath = api.resolve('./src/router.js')
-  opts.router = opts.router || fs.existsSync(routerPath)
-
-  const filesToDelete = [
-    'src/assets/logo.png',
-    'src/views/About.vue',
-    'src/views/Home.vue',
-  ]
-
-  console.log('\n[custom-tpl plugin tips]\n \t GeneratorAPI options:', opts)
-
-  if (opts.replaceTemplates) {
-    api.render('./templates/others')
-
-    // https://github.com/vuejs/vue-cli/issues/2470
-    api.render(files => {
-      Object.keys(files)
-        .filter(name => filesToDelete.indexOf(name) > -1)
-        .forEach(name => delete files[name])
-    })
-
-    api.render('./templates/base')
-
-    if (opts.router) {
-      // 替换掉路由文件
-      api.render('./templates/sp')
-    }
-
-  }
-}
-
-function addDependencies (api) {
-  api.extendPackage({
-    dependencies: {
-      "axios": "^0.18.0",
-    },
-    devDependencies: {
-      // "less": "^3.0.4",
-      // "less-loader": "^4.1.0",
-    }
-  })
-}
+const fs = require ('fs');
 
 module.exports = (api, opts, rootOpts) => {
+  // 添加 npm 命令
+  api.extendPackage ({
+    scripts: {
+      dev: 'vue-cli-service serve --copy',
+      build: 'vue-cli-service build',
+      review: 'serve -s dist',
+      lint: 'vue-cli-service lint',
+      serve: 'vue-cli-service serve',
+    },
+  });
 
-  addDependencies(api)
+  // 开发依赖包
+  api.extendPackage ({
+    devDependencies: {
+      serve: '^10.0.1',
+      'style-resources-loader': '1.2.1',
+      "vue-template-compiler": "^2.5.21",
+      less: '^2.7.2',
+      'less-loader': '^3.0.0',
+      "vue-template-compiler": '^2.5.21', 
+    },
+  });
 
-  renderFiles(api, opts)
-}
+  api.extendPackage ({
+    dependencies: {
+      flyio: '^0.6.14', 
+      lodash: '^4.17.11',
+      'normalize.css': '^8.0.0',
+      nprogress: '^0.2.0',
+      countup: '^1.8.2', 
+      vant: '^1.6.9',
+      "weixin-js-sdk": "^1.4.0-test",
+      "vue-qr": "^1.5.2",
+      vconsole: "^3.3.0",
+    },
+  }); 
+
+  // 扩展 .eslintrc 配置
+  api.extendPackage ({
+    eslintConfig: {
+      rules: {
+        'vue/no-parsing-error': [2, {'x-invalid-end-tag': false}],
+      },
+    },
+  });
+
+  // 删除多余的模板
+  api.render (files => {
+    Object.keys (files)
+      .filter (path => path.startsWith ('src/') || path.startsWith ('public/'))
+      .forEach (path => delete files[path]);
+  });
+
+  api.render('./templates/default');
+
+  // 删除多余目录
+  const pwaFiles = [
+    'public/robots.txt',
+    'public/manifest.json',
+    'src/registerServiceWorker.js',
+    'public/icons/android-chrome-192x192.png',
+    'public/icons/apple-touch-icon-152x152.png',
+    'public/icons/msapplication-icon-144x144.png',
+    'public/icons/safari-pinned-tab.svg',
+  ];
+
+  if (opts.pwa) {
+    api.extendPackage ({
+      dependencies: {
+        'register-service-worker': '^1.0.0',
+        'sass-loader': '^7.1.0',
+      },
+      devDependencies: {
+        '@vue/cli-plugin-pwa': '^3.0.3',
+      },
+    });
+  }
+
+  api.render (files => {
+    Object.keys (files)
+      .filter (path =>
+        path.includes (`/${opts.cssPreprocessor === 'sass' ? 'less' : 'sass'}/`)
+      )
+      .forEach (path => delete files[path]);
+
+    if (!opts.pwa) {
+      Object.keys (files)
+        .filter (path => {
+          return pwaFiles.find (file => path.includes (file));
+        })
+        .forEach (path => delete files[path]);
+    }
+  });
+};
