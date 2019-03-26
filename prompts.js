@@ -16,11 +16,6 @@ module.exports = [
     ],
     default: 'less'
   },
-  {
-    name: 'weixin',
-    type: 'confirm',
-    message: 'Weixin module needed?(default:true)'
-  },
   
   // 是否支持pwa，默认否
   {
