@@ -54,7 +54,9 @@ module.exports = (api, opts, rootOpts) => {
       .forEach (path => delete files[path]);
   });
 
-  api.render('./templates/default');
+  api.render('./templates');
  
- 
+  api.onCreateComplete(() => {
+    process.env.VUE_CLI_SKIP_WRITE = true
+  })
 };

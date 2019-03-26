@@ -1,19 +1,12 @@
-{ 
-  "git": false,
-  "useConfigFiles": false,
-  "plugins": {
-    "@vue/cli-plugin-babel": {},
-    "@vue/cli-plugin-eslint": {
-      "prompts": true
-    }
-  },
+{
+  "useConfigFiles": true,
+  "packageManager": "npm",
+  "useTaobaoRegistry": true,
+  "cssPreprocessor": "less",
   "router": true,
   "vuex": true,
-  "configs": {
-    "vue": {
-      "baseUrl": "./",
-      "lintOnSave": true,
-      "productionSourceMap": false
-    }
+  "routerHistoryMode": true,
+  "plugins": {
+    "@vue/cli-plugin-babel": {}
   }
 }
