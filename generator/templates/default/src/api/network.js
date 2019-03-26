@@ -3,6 +3,8 @@
   add by zxy at 2019-03-14 17:19:18
 */  
 import Fly from 'flyio/dist/npm/fly';
+import {Dialog, Toast} from 'vant';
+
 const fly = new Fly (); 
 // 添加请求拦截器
 fly.interceptors.request.use (request => {
@@ -92,8 +94,7 @@ export default {
           loadingType: 'spinner',
           message: '加载中...',
         });
-      }
-      console.log (axios.post.headers);
+      } 
       fly
         .post (
           url,

@@ -1,3 +1,4 @@
+/* eslint-disable */
 /************************************************************************************
  *
  *                                  日期工具类
@@ -460,7 +461,7 @@ let checkIdentityCode = function (code) {
         wi = factor[i]
         sum += ai * wi
       }
-      if (parity[sum % 11] != code[17].toUpperCase()) {
+      if (parity[sum % 11] !== code[17].toUpperCase()) {
         pass = false
       }
     } else {
@@ -729,6 +730,9 @@ export default {
   isPureChinese,
   isEmptyObject,
   isEmptyString,
+  isNativeJSON,
+  isEmptyArray,
+  isNotEmptyArray,
   checkPassword,
   convertToString,
   encryptIDNumber,

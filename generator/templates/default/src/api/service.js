@@ -4,8 +4,7 @@
   add by zxy at 2019-03-14 17:19:18
 */
 import api from './api';
-import network from './network';
-import wx from 'weixin-js-sdk';
+import network from './network'; 
 
 
 // 验证码登录
@@ -53,18 +52,11 @@ export function videoTaskToSuccess (docId, filename, id) {
     id: id,
   };
   return network
-    .post (api.noticUploadVideoSuccess, params)
-    .then (function (res) {
-      return res;
-    });
+    .post (api.noticUploadVideoSuccess, params) 
 }
 // 获取微信公众号签名信息
 export function getWxSignatureData (url) {
     return network
-      .get (api.getWxSignature, {url}, true)
-      .then (result => { 
-        return result;
-      })
-      .catch (err => {});
+      .get (api.getWxSignature, {url}, true) 
   }
   

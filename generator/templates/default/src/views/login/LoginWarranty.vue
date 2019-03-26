@@ -48,7 +48,7 @@ export default {
       var verifyCode = this.$refs.getInput.verifyCode;
       var errMsg = "";
 
-      if (verifyCode.length == 0) {
+      if (verifyCode.length === 0) {
         errMsg = "请输入验证码";
       }
 
@@ -65,8 +65,7 @@ export default {
         .then(function(res) {
           _this.$store.commit("updateUserInfo", res);
           _this.jumpToNextPage();
-        })
-        .catch(function(err) {});
+        }) 
     },
 
     jumpToNextPage() {
@@ -84,8 +83,7 @@ export default {
       getVerifyCode(this.phoneNum)
         .then(function(resp) {
           _this.codeId = resp.sessionId;
-        })
-        .catch(function(error) {});
+        }) 
     }
   }
 };

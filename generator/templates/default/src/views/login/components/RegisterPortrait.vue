@@ -21,12 +21,7 @@
 import utils from "../../assets/js/common.js";
 
 export default { 
-  components: {
-    [Button.name]: Button,
-    [Field.name]: Field,
-    [CellGroup.name]: CellGroup,
-    [Checkbox.name]: Checkbox,
-    [CheckboxGroup.name]: CheckboxGroup
+  components: { 
   },
   created() { 
   },
