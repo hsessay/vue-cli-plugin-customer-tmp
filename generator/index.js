@@ -50,7 +50,7 @@ module.exports = (api, opts, rootOpts) => {
   // 删除多余的模板
   api.render (files => {
     Object.keys (files)
-      .filter (path => path.startsWith ('src/') || path.startsWith ('public/'))
+      .filter (path => path.startsWith ('src/') || path.startsWith ('public/') || path.startsWith('tests/'))
       .forEach (path => delete files[path]);
   });
 
