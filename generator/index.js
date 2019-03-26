@@ -19,12 +19,7 @@ function renderFiles (api, opts) {
     })
 
     api.render('./templates/base')
-
-    if (opts.router) {
-      // 替换掉路由文件
-      api.render('./templates/sp')
-    }else{
-    } 
+ 
 }
 
 function addDependencies (api) {
