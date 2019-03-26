@@ -1,6 +1,8 @@
 {
   "useConfigFiles": true,
   "router": true,
+  "vuex": true,
+  "routerHistoryMode": true,
   "cssPreprocessor": "less",
   "plugins": {
     "@vue/cli-plugin-babel": {},
@@ -9,10 +11,6 @@
       "lintOn": [
         "save"
       ]
-    },
-    "vue-cli-plugin-custom-tpl": {
-      "replaceTemplates": true,
-      "router": true
-    }
+    } 
   }
 }
