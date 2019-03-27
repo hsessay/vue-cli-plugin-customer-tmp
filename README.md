@@ -1,150 +1,174 @@
-# vue-cli-preset-kz
+# vue-cli3-preset-seed
+[![Build Status](https://travis-ci.com/yuezhilunhui2009/vue-cli3-preset-seed.svg?branch=master)](https://travis-ci.com/yuezhilunhui2009/vue-cli3-preset-seed)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-vue项目开发预设模板
+vue-cli3-preset-seed 是一个 web 前端项目骨架，用于配合 Vue.js 开发标准工具 [Vue CLI 3](https://cli.vuejs.org/zh/) 在创建新项目时使用。
 
-[https://kuaizi-co.github.io/vue-cli-preset-kz](https://kuaizi-co.github.io/vue-cli-preset-kz)
+## 准备工作
+确认计算机已安装 [nodejs v8.11.0+](https://nodejs.org/en/download/) 与 npm
 
-## Install
+## 快速开始
+```bash
+# 安装 vue-cli
+npm install -g @vue/cli
 
-```
-# 首先安装vue-cli 3.0
-> npm install -g @vue/cli
+# 根据远程 preset 创建项目 
+vue create --preset yuezhilunhui2009/vue-cli3-preset-seed preset-seed-demo
+# or
+vue create --preset direct:https://github.com/yuezhilunhui2009/vue-cli3-preset-seed.git preset-seed-demo --clone
 
-> vue create --preset kuaizi-co/vue-cli-preset-kz project-name --no-git
+# 本地预览
+# 示例链接：http://localhost:8080/simple.html
+# 示例链接：http://localhost:8080/verbose.html
+cd preset-seed-demo && npm run serve
 
-# OR more faster!!!
-# - project-name
-# - vue-cli-preset-kz
-project-name> cd ..
-> git clone https://github.com/Kuaizi-co/vue-cli-preset-kz.git
-> cd vue-cli-preset-kz
-> git pull origin master
-> cd ..
-> vue create --preset ./vue-cli-preset-kz project-name --no-git
-```
+# 构建测试版本
+npm run build:test
 
-## Develop
+# 构建部署版本
+npm run build:prod
 
-```
-npm run dev
-```
-
-## Build
-
-```
-npm run build
+# 代码提交
+git-cz
 ```
 
-## Review
-
+## 环境变量
+* dev 模式
+```bash
+NODE_ENV=development
+VUE_APP_BUILD_MODE=DEV
 ```
-npm run review
+* test 模式
+```bash
+NODE_ENV=production
+VUE_APP_BUILD_MODE=TEST
 ```
-
-## 功能列表
-
-- [x] postcss/less/sass
-- [x] ES6/Typescript
-- [x] element-ui/iview
-- [x] vue-router/vuex
-- [x] mock server
-- [x] style-resources-loader
-- [x] i18n
-- [x] axios
-- [x] PWA
-- [x] unit(mocha)/e2e(Nightwatch)
-- [ ] nuxt.js/egg.js
-
-### css预处理器全局变量
-
-内置`style-resources-loader`，支持`less`、`sass` 加载全局变量文件。
-
-```
-# vue.config.js
-/**
- * 样式预处理器全局变量资源插件
- * @param {String} rule webpack 规则
- */
-function addStyleResource (rule) {
-  rule.use('style-resource')
-    .loader('style-resources-loader')
-    .options({
-      patterns: [
-        resolve('./src/assets/less/var.less')
-      ]
-    })
-}
+* prod 模式
+```bash
+NODE_ENV=production
+VUE_APP_BUILD_MODE=PROD
 ```
 
-在`*.vue`文件中直接使用 `var.less(scss)`定义的变量，增加共同`mixin`只需手动添加文件的路径。
+## 项目结构
+标识：
+** 根据需要可选的目录或者文件
 
-```
-# App.vue
-<style lang="less">
-  h1 {
-    // @color 在var.less中定义
-    color: @color;
-  }
-</style>
-```
-
-### preset模板
-
-当前 preset 模板暂只有 `default` 默认模板，对于 `ts`、`egg`、`nuxt` 模板添加时间待定。
-
-### UI 框架
-
-本 preset 支持 `element-ui` 和 `iview`（默认）两种。
-
-![iview](./screenshot/iview.png)
-
-iView
-
-![element-ui](./screenshot/element-ui.png)
-
-element-ui
-
-### I18n 多语言
-
-多语言采用模块异步延迟加载方式，首先检测语言环境及用户上次使用的语言。在切换语言后，如果尚未加载的语言包将从服务器中加载，达到项目按需加载资源优化。
-
-```
-src
-   i18n
-      index.js
-      zh-CN.js
-      en-US.js
-```
-
-![英文版页面](./screenshot/iview-en.png)
-
-英文版页面
-
-### 多页模式
-
-通过配置`vue.config.js`的`pages`参数，默认读取 `src/pages`下的各个目录
-
-```
-- src
-  - pages
-    - index
-      - components
-      - routes
-      - store
-      - views
-      App.vue
-      index.html
-      main.js
-    - about
+```bash
+├── docs                            # 项目文档
+├── dist                            # 输出目录
+└── src                             # 源代码
+    ├── apis                        # 数据 API 层
+    ├── assets                      # 项目级公共资产文件
+    ├── components                  # 项目级公共组件
+    ├── pages                       # 页面文件夹
+    │   ├── simple                  # 简单页面示例，文件夹名字将作为最终页面名字，例如：dist/simple.html
+    │   │   ├── App.vue             # 必须，页面根组件
+    │   │   ├── index.js            # 必须，页面入口文件
+    │   │   └── index.html          # 必须，页面模板文件
+    │   └── verbose                 # 复杂页面示例，文件夹名字将作为最终页面名字，例如：dist/verbose.html
+    │       ├── components          # 页面级公共组件
+    │       ├── router              # 路由
+    │       ├── scripts             # 页面级公共脚本
+    │       ├── store               # 页面 store
+    │       │   ├── modules         # 页面 store 子模块
+    │       │   ├── actions.js      # 页面 Actions
+    │       │   ├── mutations.js    # 页面 Mutations
+    │       │   └── index.js        # 页面 store 入口文件
+    │       ├── views**             # SPA 的各个视图
+    │       │   ├── article-list    # 示例视图
+    │       │   └── home            # 示例视图
+    │       ├── App.vue             # 必须，页面根组件
+    │       ├── index.js            # 必须，页面入口文件
+    │       └── index.html          # 必须，页面模板文件
+    ├── store                       # 项目级公共 store，提供生成 store 函数
+    │   └── modules                 # 项目级公共 store 子模块
+    ├── scripts                     # 项目级公共脚本
+    │   ├── directives**            # vue 自定义指令
+    │   └── filters**               # vue 自定义过滤器
+    └── styles                      # 项目级公共样式
 ```
 
-每个单页基本包含3个文件
+## 项目子结构说明
+标识说明：
+** 根据需要可选的目录或者文件
 
-```
-App.vue
-index.html
-main.js
+### 业务子结构
+项目中的一些路径通常是根据业务进行分割的，例如：
+
+* src/apis/
+* src/store/modules/
+* src/pages/
+* src/pages/views/
+* src/pages/store/modules/
+
+这些路径下可以根据业务为文件/文件夹命名。
+
+### 通用结构
+* scripts、assets、styles 文件夹可以根据情况添加，原则是放在里面的文件只有同级或者同级的子级会用到。
+
+### 页面结构
+* 页面文件夹最少需要 App.vue、index.js、index.html 三个文件组成。
+* 最简结构：
+```bash
+└── simple
+    ├── App.vue
+    ├── index.html
+    └── index.js
 ```
 
-# 
-copyright (c) www.kuaizi.ai
+### vue 组件结构
+* 最简结构：
+```bash
+└── Example.vue
+```
+
+* 复杂的酌情使用以下结构：
+```bash
+└── Example
+    ├── assets**
+    ├── scripts**
+    ├── Example.vue
+    ├── ExampleSubA.vue**
+    ├── ExampleSubB.vue**
+    └── index.js
+```
+
+### 其他组件要求的项目结构
+* 对于 router、store 等组件尽量根据官方或者最佳实践创建。
+
+<!--
+## 阅读详细工程文档
+```bash
+# 本地预览
+npm run docs:dev
+
+# 构建部署版本
+npm run docs:build
+```
+-->
+
+## TODO
+2018/10/8 ~ 2018/10/12
+
+- [x] 项目目录结构
+- [x] CSS 预处理器 less
+- [x] postcss 配置
+    - [x] cssnano 优化 CSS 尺寸
+    - [x] autoprefixer 根据 browserlist 进行前缀补齐
+    - [x] postcss-px-to-viewport
+- [x] babel 配置
+- [x] browserslist 配置
+- [x] eslint 配置
+
+2018/10/15 ~ 2018/10/19
+
+- [x] commitizen、cz-conventional-changelog 配置，辅助生成标准提交格式
+- [x] commitlint、@commitlint/config-conventional 配置，检验提交信息格式
+- [x] git-hook 配置，强制 git 提交前执行 eslint、commitlint
+- [x] 自动 @import variables.less
+- [ ] API 层
+- [x] proxy 配置
+- [x] 环境变量配置
+- [x] vuex、vue-router 示例
+- [x] simple、verbose 两个示例页面
+

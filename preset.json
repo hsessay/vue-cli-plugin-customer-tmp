@@ -1,22 +1,28 @@
 {
-  "useTaobaoRegistry": true,
-  "git": false,
   "useConfigFiles": false,
+  "router": false,
+  "vuex": false,
+  "cssPreprocessor": "less",
   "plugins": {
     "@vue/cli-plugin-babel": {},
     "@vue/cli-plugin-eslint": {
-      "prompts": true
-    },
-    "@vue/cli-plugin-e2e-nightwatch": {},
-    "@vue/cli-plugin-unit-mocha": {}
-  },
-  "router": true,
-  "vuex": true,
-  "configs": {
-    "vue": {
-      "baseUrl": "./",
-      "lintOnSave": true,
-      "productionSourceMap": false
+      "config": "standard",
+      "lintOn": [
+        "save",
+        "commit"
+      ]
     }
+  },
+  "configs": {
+    "postcss": {
+      "plugins": {}
+    },
+    "browserslist": [
+      "> 1%",
+      "last 2 versions",
+      "not ie <= 8",
+      "android >= 4",
+      "ios >= 8"
+    ]
   }
 }

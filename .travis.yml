@@ -1,0 +1,13 @@
+before_install:
+  - npm install -g @vue/cli
+
+language: node_js
+node_js:
+  - "8"
+
+jobs:
+  include:
+    - stage: lint
+      script: "npm run lint"
+    - stage: build_demo
+      script: "vue create --preset . preset-demo && cd preset-demo && npm run build:prod"
