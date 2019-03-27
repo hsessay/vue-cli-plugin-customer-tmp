@@ -1,5 +1,5 @@
 {
-  "useConfigFiles": true,
+  "useConfigFiles": false,
   "router": true,
   "vuex": true
 }
