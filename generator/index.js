@@ -10,7 +10,12 @@ function renderFiles (api, opts) {
     'src/assets/logo.png',
     'src/views/About.vue',
     'src/views/Home.vue',
-  ] 
+  ]
+
+  console.log('\n[custom-tpl plugin tips]\n \t GeneratorAPI options:', opts)
+
+  if (opts.replaceTemplates) {
+
     // https://github.com/vuejs/vue-cli/issues/2470
     api.render(files => {
       Object.keys(files)
@@ -18,13 +23,8 @@ function renderFiles (api, opts) {
         .forEach(name => delete files[name])
     })
 
-    api.render('./templates/base')
-
-    if (opts.router) {
-      // 替换掉路由文件
-      api.render('./templates/sp')
-    }else{
-    } 
+    api.render('./templates/base') 
+  }
 }
 
 function addDependencies (api) {
