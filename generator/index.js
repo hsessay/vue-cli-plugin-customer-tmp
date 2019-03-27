@@ -25,16 +25,14 @@ function renderFiles (api, opts) {
   api.render('./templates/base') 
 
   // 删除原模板中文件
-  const filesToDel = [ 
-    'src/main.js',
+  const filesToDel = [  
     'src/views/Hello.vue'
   ]
   api.render(files => {
     Object.keys(files)
       .filter(name => filesToDel.indexOf(name) > -1)
       .forEach(name => delete files[name])
-  })
-  api.render('./templates/main') 
+  }) 
 }
 
 function addDependencies (api) {
