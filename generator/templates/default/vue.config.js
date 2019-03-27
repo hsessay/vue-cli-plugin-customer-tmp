@@ -59,10 +59,10 @@ module.exports = {
     // 移除 prefetch 插件
     config.plugins.delete('prefetch')
     config.plugins.delete('preload')
-    Object.keys(pages).forEach(page => {
-      config.plugins.delete(`preload-${page}`)
-      config.plugins.delete(`prefetch-${page}`)
-    })
+    // Object.keys(pages).forEach(page => {
+    //   config.plugins.delete(`preload-${page}`)
+    //   config.plugins.delete(`prefetch-${page}`)
+    // })
 
     // config.resolve
     //         .alias
