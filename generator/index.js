@@ -10,6 +10,8 @@ function renderFiles (api, opts) {
     'src/assets/logo.png',
     'src/views/About.vue',
     'src/views/Home.vue',
+    'src/store.js',
+    'src/views/Hello.vue'
   ]
 
   console.log('\n[custom-tpl plugin tips]\n \t GeneratorAPI options:', opts)
