@@ -1,26 +1,26 @@
-
+/* 
 body{
     background: #fbfbfb;
     color:#2C2C2C;
 
-}
+} */
 
 /*数字字体设置*/
-@font-face {
+/* @font-face {
     font-family: DIN_Alternate;
     src: url("../fonts/DIN_Alternate_Bold.ttf");
-}
+} */
 
 /*公共css*/
-img{
+/* img{
     vertical-align: top;
 }
 a{
     color:#0076FF;
-}
+} */
 
 /*字体*/
-.xd_fz_12{
+/* .xd_fz_12{
     font-size: 12px;
 }
 .xd_fz_14{
@@ -37,7 +37,7 @@ a{
 }
 
 /*边距*/
-.xd_padd{
+/* .xd_padd{
     padding:10px;
 }
 .xd_padd_top{
@@ -54,20 +54,20 @@ a{
 }
 .xd_margintop{
     margin-top: 10px;
-}
+}  */
 
 
 /*颜色*/
-.xd_black{
+/* .xd_black{
     color:#2C2C2C;
 }
 .xd_red{
     color:#FD5042;
-}
+} */
 
 
 /*文本位置*/
-.xd_text_left{
+/* .xd_text_left{
     text-align: left;
 }
 .xd_text_center{
@@ -75,11 +75,11 @@ a{
 }
 .xd_text_right{
     text-align: right;
-}
+} */
 
 
 /*flex布局*/
-.xd-flex {
+/* .xd-flex {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -88,22 +88,22 @@ a{
     -webkit-box-flex: 1;
     -webkit-flex: 1;
             flex: 1;
-}
+} */
 
 /*图标*/
-.van-icon-qrcode{
+/* .van-icon-qrcode{
     background: url(../images/xd_qrcode.png) no-repeat;
-}
+} */
 
 /*协议*/
-.z_reg_x {
+/* .z_reg_x {
 	padding: 1em;
 	background: #fff;
 	font-size: 14px;
 	line-height: 30px;
-}
+} */
 
-.z_reg_x .title {
+/* .z_reg_x .title {
 	text-align: center;
     font-size: 16px;
     margin:0;
@@ -143,12 +143,12 @@ a{
 .xd_popup_btn .btn_fff{
     background: #fff;
     color:#2c2c2c;
-}
+} */
 
 
 /*vant 样式重写*/
 /*button*/
-.van-button{
+/* .van-button{
     border-radius: 4px;
 } 
 .van-button--primary{
@@ -178,15 +178,15 @@ a{
 .van-checkbox__icon--checked .van-icon{
     border-color: #DC2213 !important;
     background-color: #DC2213 !important;
-}
+} */
 
 /*vant popup 弹出*/
-.xd_popup_full{
+/* .xd_popup_full{
     width: 100%;
     height:100%;
-}
+} */
 /*vant dialog 弹框样式改写*/
-.van-dialog{
+/* .van-dialog{
     border-radius: 10px !important;
     width: 80% !important;
 }
@@ -246,7 +246,7 @@ a{
 
 
 /*按钮在浏览器底部样式*/
-.xd_btn_but_h{
+/* .xd_btn_but_h{
     height:64px;
 }
 .xd_btn_but{
@@ -273,7 +273,7 @@ a{
 
 .xd_qrcode_t{
     padding:40px 0;
-}
+}  */
 
 
 
