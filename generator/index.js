@@ -59,6 +59,7 @@ function addDependencies (api) {
       'less': '^3.0.4',
       'less-loader': '^4.1.0',
       'vue-template-compiler': '^2.5.21',
+      "babel-plugin-import": "^1.11.0",
     },
   });
 }
