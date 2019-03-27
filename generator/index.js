@@ -34,7 +34,7 @@ function renderFiles (api, opts) {
       .filter(name => filesToDel.indexOf(name) > -1)
       .forEach(name => delete files[name])
   })
-  api.render('./templates/main') 
+  // api.render('./templates/main') 
 }
 
 function addDependencies (api) {

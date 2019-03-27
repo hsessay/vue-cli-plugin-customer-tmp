@@ -1,5 +1,5 @@
 const path = require('path')
-const resolve = folder => path.resolve(__dirname, folder)
+// const resolve = folder => path.resolve(__dirname, folder)
  
 module.exports = { 
   // 自定义webpack配置

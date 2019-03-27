@@ -27,13 +27,13 @@ export default {
         title,
         imgUrl,
         success: function success(res) {
-          console.log("已分享");
+          console.log("已分享" + res);
         },
         cancel: function cancel(res) {
-          console.log("已取消");
+          console.log("已取消" + res);
         },
         fail: function fail(res) {
-          console.log("分享失败");
+          console.log("分享失败" + res);
         }
       };
       wx.ready(function() {
@@ -47,7 +47,7 @@ export default {
             "updateTimelineShareData"
           ], // 需要检测的JS接口列表，所有JS接口列表见附录2,
           success: function(res) {
-            console.log("支持");
+            console.log("支持" + res);
           }
         });
         wx.updateAppMessageShareData(data);
