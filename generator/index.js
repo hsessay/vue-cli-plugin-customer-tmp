@@ -10,8 +10,8 @@ function renderFiles (api, opts) {
     'src/assets/logo.png',
     'src/views/About.vue',
     'src/views/Home.vue',
-    'src/store.js',
-    'src/views/Hello.vue'
+    'src/main.js'
+    'src/store.js' 
   ]
 
   console.log('\n[custom-tpl plugin tips]\n \t GeneratorAPI options:', opts)
@@ -24,6 +24,14 @@ function renderFiles (api, opts) {
   })
 
   api.render('./templates/base') 
+  const filesToDel = [ 
+    'src/views/Hello.vue'
+  ]
+  api.render(files => {
+    Object.keys(files)
+      .filter(name => filesToDel.indexOf(name) > -1)
+      .forEach(name => delete files[name])
+  })
 }
 
 function addDependencies (api) {
