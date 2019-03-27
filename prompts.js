@@ -42,23 +42,7 @@
     type: 'confirm',
     message: 'Progressive Web App (PWA) Support (default: None)',
     default: false
-  },
-  {
-    name: 'SSR',
-    type: 'list',
-    message: 'Add support for Server-Side Rendering',
-    choices: [
-      {
-        name: 'None',
-        value: 'none'
-      },
-      {
-        name: 'Nuxt',
-        value: 'nuxt'
-      } 
-    ],
-    default: 'none'
-  },
+  }, 
   {
     name: 'Server Port',
     type: 'input',
