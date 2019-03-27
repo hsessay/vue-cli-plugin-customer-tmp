@@ -32,11 +32,22 @@ function renderFiles (api, opts) {
 function addDependencies (api) {
   api.extendPackage({
     dependencies: {
-      "axios": "^0.18.0",
+      'flyio': '^0.6.14', 
+      'lodash': '^4.17.11',
+      'normalize.css': '^8.0.0',
+      'nprogress': '^0.2.0',
+      'countup': '^1.8.2', 
+      'vant': '^1.6.9',
+      "weixin-js-sdk": "^1.4.0-test",
+      "vue-qr": "^1.5.2",
+      'vconsole': "^3.3.0",
+      "vuex": "^3.1.0"
     },
-    devDependencies: {
-      // "less": "^3.0.4",
-      // "less-loader": "^4.1.0",
+    devDependencies: { 
+      'style-resources-loader': '1.2.1',
+      'vue-template-compiler': '^2.5.21',
+      'less': '^2.7.2',
+      'less-loader': '^3.0.0' 
     }
   })
 }

@@ -10,10 +10,6 @@
       "lintOn": [
         "save"
       ]
-    },
-    "vue-cli-plugin-custom-tpl": {
-      "replaceTemplates": true,
-      "router": true
-    }
+    } 
   }
 }
