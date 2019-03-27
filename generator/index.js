@@ -10,7 +10,7 @@ function renderFiles (api, opts) {
     'src/assets/logo.png',
     'src/views/About.vue',
     'src/views/Home.vue',
-    'src/main.js'
+    'src/main.js',
     'src/store.js' 
   ]
 
