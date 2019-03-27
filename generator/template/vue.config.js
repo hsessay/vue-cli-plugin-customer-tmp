@@ -51,22 +51,19 @@ const addStyleResource = (rule) => {
 module.exports = {
   baseUrl: process.env.VUE_APP_BUILD_MODE === 'PROD' ? 'http://cdn_static_root/' : '.',
   outputDir: 'dist',
-  assetsDir: 'static',
+  assetsDir: 'public',
   filenameHashing: true,
   transpileDependencies: [],
   productionSourceMap: true,
-  pages: generatePagesConfig({ pagesDir: './src/pages/' }),
+  // pages: generatePagesConfig({ pagesDir: './src/pages/' }),
   chainWebpack: config => {
     // 路径别名
     config.resolve.alias
       .set('@', path.resolve(__dirname, './src'))
-      .set('@apis', path.resolve(__dirname, './src/apis'))
-      .set('@store', path.resolve(__dirname, './src/store'))
+      .set('@api', path.resolve(__dirname, './src/api')) 
       .set('@assets', path.resolve(__dirname, './src/assets'))
       .set('@comps', path.resolve(__dirname, './src/components'))
-      .set('@pages', path.resolve(__dirname, './src/pages'))
-      .set('@scripts', path.resolve(__dirname, './src/scripts'))
-      .set('@styles', path.resolve(__dirname, './src/styles'))
+      .set('@views', path.resolve(__dirname, './src/views')) 
 
     // 添加样式预处理全局变量插件
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
