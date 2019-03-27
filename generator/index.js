@@ -9,8 +9,7 @@ function renderFiles (api, opts) {
   const filesToDelete = [
     'src/assets/logo.png',
     'src/views/About.vue',
-    'src/views/Home.vue',
-    'src/main.js',
+    'src/views/Home.vue', 
     'src/store.js' 
   ]
 
@@ -25,6 +24,7 @@ function renderFiles (api, opts) {
 
   api.render('./templates/base') 
   const filesToDel = [ 
+    'src/main.js',
     'src/views/Hello.vue'
   ]
   api.render(files => {
