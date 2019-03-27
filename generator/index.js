@@ -46,7 +46,7 @@ function addDependencies (api) {
       'vconsole': '^3.3.0',
       'vuex': '^3.1.0',
       'vue': "^2.6.6",
-      'veue-routr': "^3.0.1",
+      'vue-router': "^3.0.1",
     },
     devDependencies: {
       '@vue/cli-plugin-babel': '^3.5.0',
