@@ -2,8 +2,8 @@ function renderFiles (api, opts) {
   const fs = require ('fs');
 
   // 通过preset的形式配置opts.router，这里则不需要
-  const routerPath = api.resolve ('./src/router.js');
-  opts.router = opts.router || fs.existsSync (routerPath);
+  // const routerPath = api.resolve ('./src/router.js');
+  // opts.router = opts.router || fs.existsSync (routerPath);
 
   const filesToDelete = [
     'src/assets/logo.png',
@@ -12,7 +12,7 @@ function renderFiles (api, opts) {
     'src/store.js',
   ];
 
-  console.log ('\n[custom-tpl plugin tips]\n \t GeneratorAPI options:', opts);
+  // console.log ('\n[custom-tpl plugin tips]\n \t GeneratorAPI options:', opts);
 
   // https://github.com/vuejs/vue-cli/issues/2470
   api.render (files => {
@@ -44,22 +44,16 @@ function addDependencies (api) {
       'weixin-js-sdk': '^1.4.0-test',
       'vue-qr': '^1.5.2',
       'vconsole': '^3.3.0',
-      'vuex': '^3.1.0',
-      'vue': "^2.6.6",
-      'vue-router': "^3.0.1",
+      // 'vuex': '^3.1.0',
+      // 'vue': "^2.6.6",
+      // 'vue-router': "^3.0.1",
     },
     devDependencies: {
-      '@vue/cli-plugin-babel': '^3.5.0',
-      '@vue/cli-plugin-eslint': '^3.5.0',
-      '@vue/cli-service': '^3.5.0',
-      '@vue/eslint-config-standard': '^4.0.0',
-      'babel-eslint': '^10.0.1',
-      'eslint': '^5.8.0',
-      'eslint-plugin-vue': '^5.0.0',
-      'less': '^3.0.4',
-      'less-loader': '^4.1.0',
-      'vue-template-compiler': '^2.5.21',
-      "babel-plugin-import": "^1.11.0",
+      // 'serve': '^10.0.1',
+      // 'style-resources-loader': '1.2.1',
+      // "less": "^2.7.2",
+      // "less-loader": "^3.0.0"
+      "babel-plugin-import": "^1.11.0"
     },
   });
 }
