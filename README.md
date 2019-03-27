@@ -43,17 +43,4 @@ VUE_APP_BUILD_MODE=TEST
 ```bash
 NODE_ENV=production
 VUE_APP_BUILD_MODE=PROD
-```
-
-2018/10/15 ~ 2018/10/19
-
-- [x] commitizen、cz-conventional-changelog 配置，辅助生成标准提交格式
-- [x] commitlint、@commitlint/config-conventional 配置，检验提交信息格式
-- [x] git-hook 配置，强制 git 提交前执行 eslint、commitlint
-- [x] 自动 @import variables.less
-- [ ] API 层
-- [x] proxy 配置
-- [x] 环境变量配置
-- [x] vuex、vue-router 示例
-- [x] simple、verbose 两个示例页面
-
+``` 
