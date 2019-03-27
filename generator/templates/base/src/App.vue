@@ -1,28 +1,27 @@
 <template>
-  <div id="app">
-    <%_ if (rootOptions.router) { _%>
-    <router-view/>
-    <%_ } else { _%>
-    <hello/>
-    <%_ } _%>
+  <div id="app"> 
   </div>
 </template>
+<script> 
 
-<script>
-<%_ if (!rootOptions.router) { _%>
-import hello from './views/Hello'
-<%_ } _%>
-
-export default {
-  name: 'App',
-  <%_ if (!rootOptions.router) { _%>
-  components: {
-    hello
-  },
-  <%_ } _%>
-}
+export default { 
+  methods: {
+     
+  }, 
+};
 </script>
 
 <style>
-
+@import "./src/assets/css/common.css";
+.xd-maxheight {
+  height: 60px;
+}
+.xd-maxwidth {
+  max-width: 640px;
+  margin: auto;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
 </style>

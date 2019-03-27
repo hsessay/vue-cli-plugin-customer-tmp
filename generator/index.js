@@ -16,17 +16,14 @@ function renderFiles (api, opts) {
 
   console.log('\n[custom-tpl plugin tips]\n \t GeneratorAPI options:', opts)
 
-  if (opts.replaceTemplates) {
+  // https://github.com/vuejs/vue-cli/issues/2470
+  api.render(files => {
+    Object.keys(files)
+      .filter(name => filesToDelete.indexOf(name) > -1)
+      .forEach(name => delete files[name])
+  })
 
-    // https://github.com/vuejs/vue-cli/issues/2470
-    api.render(files => {
-      Object.keys(files)
-        .filter(name => filesToDelete.indexOf(name) > -1)
-        .forEach(name => delete files[name])
-    })
-
-    api.render('./templates/base') 
-  }
+  api.render('./templates/base') 
 }
 
 function addDependencies (api) {
@@ -46,8 +43,8 @@ function addDependencies (api) {
     devDependencies: { 
       'style-resources-loader': '1.2.1',
       'vue-template-compiler': '^2.5.21',
-      'less': '^2.7.2',
-      'less-loader': '^3.0.0' 
+      'less': '^3.0.4',
+      'less-loader': '^4.1.0' 
     }
   })
 }
