@@ -1,78 +1,150 @@
-# vue-cli-plugin-custom-tpl
+# vue-cli-preset-kz
 
-[Vue CLI 3.0](https://github.com/vuejs/vue-cli) 自定义模板插件
+vue项目开发预设模板
 
-## 特性
-脚手架默认开启如下功能：
-- less处理器
-- router
-- axios
+[https://kuaizi-co.github.io/vue-cli-preset-kz](https://kuaizi-co.github.io/vue-cli-preset-kz)
 
-## 安装
+## Install
 
-### 使用preset自动安装插件
 ```
-vue create --preset natee/vue-cli-plugin-custom-tpl my-app
+# 首先安装vue-cli 3.0
+> npm install -g @vue/cli
+
+> vue create --preset kuaizi-co/vue-cli-preset-kz project-name --no-git
+
+# OR more faster!!!
+# - project-name
+# - vue-cli-preset-kz
+project-name> cd ..
+> git clone https://github.com/Kuaizi-co/vue-cli-preset-kz.git
+> cd vue-cli-preset-kz
+> git pull origin master
+> cd ..
+> vue create --preset ./vue-cli-preset-kz project-name --no-git
 ```
 
-**preset.json**
-```json
-{
-  "useConfigFiles": true,
-  "router": true,
-  "cssPreprocessor": "less",
-  "plugins": {
-    "@vue/cli-plugin-babel": {},
-    "@vue/cli-plugin-eslint": {
-      "config": "prettier",
-      "lintOn": [
-        "save"
+## Develop
+
+```
+npm run dev
+```
+
+## Build
+
+```
+npm run build
+```
+
+## Review
+
+```
+npm run review
+```
+
+## 功能列表
+
+- [x] postcss/less/sass
+- [x] ES6/Typescript
+- [x] element-ui/iview
+- [x] vue-router/vuex
+- [x] mock server
+- [x] style-resources-loader
+- [x] i18n
+- [x] axios
+- [x] PWA
+- [x] unit(mocha)/e2e(Nightwatch)
+- [ ] nuxt.js/egg.js
+
+### css预处理器全局变量
+
+内置`style-resources-loader`，支持`less`、`sass` 加载全局变量文件。
+
+```
+# vue.config.js
+/**
+ * 样式预处理器全局变量资源插件
+ * @param {String} rule webpack 规则
+ */
+function addStyleResource (rule) {
+  rule.use('style-resource')
+    .loader('style-resources-loader')
+    .options({
+      patterns: [
+        resolve('./src/assets/less/var.less')
       ]
-    },
-    "vue-cli-plugin-custom-tpl": {
-      "replaceTemplates": true,
-      "router": true
-    }
-  }
+    })
 }
 ```
 
-### 手动安装插件
-使用vue-cli 3.0 常规创建一个项目
-```
-vue create my-app
-```
+在`*.vue`文件中直接使用 `var.less(scss)`定义的变量，增加共同`mixin`只需手动添加文件的路径。
 
 ```
-cd my-app
-vue add custom-tpl
+# App.vue
+<style lang="less">
+  h1 {
+    // @color 在var.less中定义
+    color: @color;
+  }
+</style>
 ```
 
-## 目录结构
+### preset模板
+
+当前 preset 模板暂只有 `default` 默认模板，对于 `ts`、`egg`、`nuxt` 模板添加时间待定。
+
+### UI 框架
+
+本 preset 支持 `element-ui` 和 `iview`（默认）两种。
+
+![iview](./screenshot/iview.png)
+
+iView
+
+![element-ui](./screenshot/element-ui.png)
+
+element-ui
+
+### I18n 多语言
+
+多语言采用模块异步延迟加载方式，首先检测语言环境及用户上次使用的语言。在切换语言后，如果尚未加载的语言包将从服务器中加载，达到项目按需加载资源优化。
 
 ```
 src
-├── App.vue
-├── api
-│   └── index.js
-├── assets
-├── components
-│   └── HelloWorld.vue
-├── main.js
-├── router.js
-├── store.js
-└── views
-    ├── Hello.vue
-
+   i18n
+      index.js
+      zh-CN.js
+      en-US.js
 ```
 
-## 自主开发
-1. Fork本项目到username/vue-cli-plugin-name
-2. 修改模板内容，npm publish包
-3. 修改username/vue-cli-plugin-name中的preset.json内容
-4. `vue create --preset username/vue-cli-plugin-name my-app`
+![英文版页面](./screenshot/iview-en.png)
 
-## 其它
+英文版页面
 
-Vue CLI 2.x 定制化模板 [natee/webpack](https://github.com/natee/webpack)
+### 多页模式
 
+通过配置`vue.config.js`的`pages`参数，默认读取 `src/pages`下的各个目录
+
+```
+- src
+  - pages
+    - index
+      - components
+      - routes
+      - store
+      - views
+      App.vue
+      index.html
+      main.js
+    - about
+```
+
+每个单页基本包含3个文件
+
+```
+App.vue
+index.html
+main.js
+```
+
+# 
+copyright (c) www.kuaizi.ai
