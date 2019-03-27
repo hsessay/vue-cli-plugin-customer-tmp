@@ -1,28 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router';
-import store from './store/store'; 
-import Vconsole from 'vconsole';
-import utils from './assets/js/common'; 
-import WXConfig from './assets/js/weixin'; // 微信分享
-Vue.prototype.WXConfig = WXConfig;
 
-// 按需引入vant提供的组件，以便减少包大小
-import { 
-  Button, Cell, Popup, Checkbox, CheckboxGroup, DatetimePicker,
-  Field, Picker, RadioGroup, Radio, Search, Slider, Stepper,Switch,
-  SwitchCell, Uploader, Actionsheet, Dialog, Loading
-} from 'vant';
-
-Vue.use(Button).use(Cell).use(Popup).use(Checkbox).use(CheckboxGroup)
-   .use(DatetimePicker).use(Field).use(Picker).use(RadioGroup).use(Radio)
-   .use(Search).use(Slider).use(Stepper).use(Switch).use(SwitchCell)
-   .use(Uploader).use(Actionsheet).use(Dialog).use(Loading)
-
-
-const vConsole = new Vconsole (); 
-Vue.use (vConsole); 
-Vue.config.productionTip = false; 
 
 let vue = new Vue ({
   store,

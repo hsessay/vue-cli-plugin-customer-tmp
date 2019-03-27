@@ -1,4 +1,4 @@
-const path = require('path')
+// const path = require('path')
 // const resolve = folder => path.resolve(__dirname, folder)
  
 module.exports = { 
