@@ -5,34 +5,34 @@ const path = require('path')
  * 生成多页面配置
  * @param {string} pagesDir 多页面文件夹相对路径
  */
-const generatePagesConfig = ({ pagesDir, customConfig = {} }) => {
-  // 多页面文件夹目录
-  const PAGES_DIR = path.resolve(__dirname, pagesDir)
-  let pagesConfig = {}
+// const generatePagesConfig = ({ pagesDir, customConfig = {} }) => {
+//   // 多页面文件夹目录
+//   const PAGES_DIR = path.resolve(__dirname, pagesDir)
+//   let pagesConfig = {}
 
-  // 读取多页面目录生成 vue.config.js 中的 pages 配置
-  if (!fs.existsSync(PAGES_DIR)) {
-    throw Error('vue.config.js pages 配置路径不存在')
-  }
+//   // 读取多页面目录生成 vue.config.js 中的 pages 配置
+//   if (!fs.existsSync(PAGES_DIR)) {
+//     throw Error('vue.config.js pages 配置路径不存在')
+//   }
 
-  fs.readdirSync(PAGES_DIR)
-    .filter(pageDir => !pageDir.startsWith('.'))
-    .reduce((pagesConfig, fileName) => {
-      pagesConfig[fileName] = {
-        // page 的入口
-        entry: path.resolve(PAGES_DIR, fileName, 'index.js'),
-        template: path.resolve(PAGES_DIR, fileName, 'index.html'),
-        // 在 dist/index.html 的输出
-        filename: `${fileName}.html`
-      }
-      return pagesConfig
-    }, pagesConfig)
+//   fs.readdirSync(PAGES_DIR)
+//     .filter(pageDir => !pageDir.startsWith('.'))
+//     .reduce((pagesConfig, fileName) => {
+//       pagesConfig[fileName] = {
+//         // page 的入口
+//         entry: path.resolve(PAGES_DIR, fileName, 'index.js'),
+//         template: path.resolve(PAGES_DIR, fileName, 'index.html'),
+//         // 在 dist/index.html 的输出
+//         filename: `${fileName}.html`
+//       }
+//       return pagesConfig
+//     }, pagesConfig)
 
-  return {
-    ...pagesConfig,
-    ...customConfig
-  }
-}
+//   return {
+//     ...pagesConfig,
+//     ...customConfig
+//   }
+// }
 
 /**
  * 样式预处理全局变量
