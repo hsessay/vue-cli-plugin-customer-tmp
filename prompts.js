@@ -44,6 +44,18 @@
     default: false
   }, 
   {
+    name: 'ui-framework',
+    type: 'list',
+    message: 'choice UI Framework',
+    choices: [
+      {
+        name: 'vant',
+        value: 'vant'
+      } 
+    ],
+    default: 'vant'
+  },
+  {
     name: 'Server Port',
     type: 'input',
     message: 'Input DevServer Port(default: 8081)',

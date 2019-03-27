@@ -23,16 +23,15 @@ module.exports = (api, opts, rootOpts) => {
 
   api.extendPackage({
     dependencies: {
-      'flyio': '^0.6.14',
+      'axios': '^0.18.0',
       'babel-polyfill': '^6.22.0',
       'lodash': '^4.17.11',
       'normalize.css': '^8.0.0',
-      'nprogress': '^0.2.0', 
-      'countup': '^1.8.2', 
-      'vant': '^1.6.9',
-      'weixin-js-sdk': '^1.4.0-test',
-      'vue-qr': '^1.5.2',
-      'vconsole': '^3.3.0',
+      'nprogress': '^0.2.0',
+      'vue-i18n': '^8.1.0',
+      'countup': '^1.8.2',
+      "echarts": "^4.2.0-rc.1",
+      [opts['ui-framework']]: '^1.6.9'
     }
   })
 
@@ -54,7 +53,19 @@ module.exports = (api, opts, rootOpts) => {
         "sass-loader": "^7.1.0"
       }
     })
-  } 
+  }
+
+  // 扩展.babelrc 配置
+  // api.extendPackage({
+  //   babel: {
+  //     env: {
+  //       test: {
+  //         plugins: ["babel-plugin-transform-es2015-modules-commonjs"]
+  //       }
+  //     }
+  //   }
+  // })
+
   // 扩展 .eslintrc 配置
   api.extendPackage({
     eslintConfig: {
@@ -76,7 +87,7 @@ module.exports = (api, opts, rootOpts) => {
 
 
 
-  // 选择生成的模板 
+   
   api.render("./templates/default") 
 
   // 删除多余目录
