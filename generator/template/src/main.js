@@ -11,13 +11,13 @@ Vue.prototype.WXConfig = WXConfig;
 import { 
   Button, Cell, Popup, Checkbox, CheckboxGroup, DatetimePicker,
   Field, Picker, RadioGroup, Radio, Search, Slider, Stepper,Switch,
-  SwitchCell, Uploader, Actionsheet, Dialog, Loading
+  SwitchCell, Uploader, Actionsheet, Dialog, Loading, CellGroup
 } from 'vant';
 
 Vue.use(Button).use(Cell).use(Popup).use(Checkbox).use(CheckboxGroup)
    .use(DatetimePicker).use(Field).use(Picker).use(RadioGroup).use(Radio)
    .use(Search).use(Slider).use(Stepper).use(Switch).use(SwitchCell)
-   .use(Uploader).use(Actionsheet).use(Dialog).use(Loading)
+   .use(Uploader).use(Actionsheet).use(Dialog).use(Loading).use(CellGroup)
 
 
 const vConsole = new Vconsole (); 
