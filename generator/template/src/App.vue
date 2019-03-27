@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style>
-@import "./src/assets/css/common.css";
+@import "./assets/css/common.css";
 .xd-maxheight {
   height: 60px;
 }

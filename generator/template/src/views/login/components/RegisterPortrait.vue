@@ -18,7 +18,7 @@
   </div>
 </template> 
 <script> 
-import utils from "../../assets/js/common.js";
+import utils from "@assets/js/common.js";
 
 export default { 
   components: { 

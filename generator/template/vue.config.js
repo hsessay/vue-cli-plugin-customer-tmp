@@ -1,4 +1,4 @@
-const fs = require('fs')
+// const fs = require('fs')
 const path = require('path')
 
 /**
@@ -49,7 +49,7 @@ const addStyleResource = (rule) => {
 }
 
 module.exports = {
-  baseUrl: process.env.VUE_APP_BUILD_MODE === 'PROD' ? 'http://cdn_static_root/' : '.',
+  publicPath: process.env.VUE_APP_BUILD_MODE === 'PROD' ? '/api/' : '.',
   outputDir: 'dist',
   assetsDir: 'public',
   filenameHashing: true,
