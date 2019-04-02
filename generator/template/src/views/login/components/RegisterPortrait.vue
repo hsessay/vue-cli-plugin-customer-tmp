@@ -64,7 +64,7 @@ export default {
   }
 };
 </script>
-<style lang='less'>
+<style lang='scss'>
 //@import url(); 引入公共css类
 .content {
   position: relative;
