@@ -73,12 +73,10 @@ module.exports = {
     loaderOptions: {
         sass: {
           // @是src的别名
-          data: `
-            @import "@/assets/css/variable.scss";
-          `
+          data: `@import "@/assets/css/variable.scss";`
         }
     }
-}
+  },
   /**
    * 本地代理配置
    * 完整选项：https://github.com/chimurai/http-proxy-middleware#proxycontext-config
