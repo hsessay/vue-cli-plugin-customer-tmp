@@ -13,7 +13,9 @@ export default {
 </script>
 
 <style>
+@import "./assets/css/variable.scss";
 @import "./assets/css/common.css";
+
 .xd-maxheight {
   height: 60px;
 }
