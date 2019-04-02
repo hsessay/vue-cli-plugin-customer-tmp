@@ -30,9 +30,9 @@ module.exports = (api, options, rootOptions) => {
     }
   })
 
-  // css 预处理 - less
+  // css 预处理 - sass
   // 在 preset.json cssPreprocessor 配置
-  // 会自动添加 less、less-loader 依赖
+  // 会自动添加 sass 依赖
   // 自动配置 loader
 
   // 添加 postcss 插件

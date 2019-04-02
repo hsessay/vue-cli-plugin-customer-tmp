@@ -2,7 +2,7 @@
   "useConfigFiles": false,
   "router": false,
   "vuex": false,
-  "cssPreprocessor": "less",
+  "cssPreprocessor": "sass",
   "plugins": {
     "@vue/cli-plugin-babel": {},
     "@vue/cli-plugin-eslint": {

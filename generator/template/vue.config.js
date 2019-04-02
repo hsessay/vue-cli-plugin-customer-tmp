@@ -37,16 +37,16 @@ const path = require('path')
 /**
  * 样式预处理全局变量
  * @param {string} rule webpack 规则
- */
-const addStyleResource = (rule) => {
-  rule.use('style-resource')
-    .loader('style-resources-loader')
-    .options({
-      patterns: [
-        path.resolve(__dirname, './src/styles/variables.less')
-      ]
-    })
-}
+//  */
+// const addStyleResource = (rule) => {
+//   rule.use('style-resource')
+//     .loader('style-resources-loader')
+//     .options({
+//       patterns: [
+//         path.resolve(__dirname, './src/styles/variables.less')
+//       ]
+//     })
+// }
 
 module.exports = {
   publicPath: process.env.VUE_APP_BUILD_MODE === 'PROD' ? '/api/' : '.',
@@ -66,9 +66,19 @@ module.exports = {
       .set('@views', path.resolve(__dirname, './src/views')) 
 
     // 添加样式预处理全局变量插件
-    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+    // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+    // types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
   },
+  css: {
+    loaderOptions: {
+        sass: {
+          // @是src的别名
+          data: `
+            @import "@/assets/css/variable.scss";
+          `
+        }
+    }
+}
   /**
    * 本地代理配置
    * 完整选项：https://github.com/chimurai/http-proxy-middleware#proxycontext-config
