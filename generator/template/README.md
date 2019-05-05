@@ -16,7 +16,9 @@ npm run serve
 ## 如何打包
 
 ```
-npm run buil
+npm run build // 生产环境
+npm run build:sit // sit环境
+npm run build:uat // uat环境
 ```
   
 
