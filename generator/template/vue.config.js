@@ -36,13 +36,9 @@ const path = require('path')
  
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/api/' : '/',
-  outputDir: 'dist',
-  assetsDir: 'public',
-  filenameHashing: true,
-  transpileDependencies: [],
-  productionSourceMap: process.env.NODE_ENV === 'production' ? false : true,
-  // pages: generatePagesConfig({ pagesDir: './src/pages/' }),
+  publicPath: process.env.NODE_ENV === 'development' ? '/' : '/api/', 
+  filenameHashing: true, 
+  productionSourceMap: process.env.NODE_ENV === 'production' ? false : true, 
   chainWebpack: config => {
     // 路径别名
     config.resolve.alias
