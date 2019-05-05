@@ -14,8 +14,6 @@ npm install -g @vue/cli
 vue create --preset hsessay/vue-cli-plugin-customer-tmp project-name 
 
 # 本地预览
-# 示例链接：http://localhost:8080/simple.html
-# 示例链接：http://localhost:8080/verbose.html
 cd project-name && npm run serve
 
 # 构建测试版本
