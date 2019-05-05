@@ -33,12 +33,7 @@ git-cz
 ```bash
 NODE_ENV=development
 VUE_APP_BUILD_MODE=DEV
-```
-* test 模式
-```bash
-NODE_ENV=production
-VUE_APP_BUILD_MODE=TEST
-```
+```  
 * prod 模式
 ```bash
 NODE_ENV=production
