@@ -33,28 +33,15 @@ const path = require('path')
 //     ...customConfig
 //   }
 // }
-
-/**
- * 样式预处理全局变量
- * @param {string} rule webpack 规则
-//  */
-// const addStyleResource = (rule) => {
-//   rule.use('style-resource')
-//     .loader('style-resources-loader')
-//     .options({
-//       patterns: [
-//         path.resolve(__dirname, './src/styles/variables.less')
-//       ]
-//     })
-// }
+ 
 
 module.exports = {
-  publicPath: process.env.VUE_APP_BUILD_MODE === 'PROD' ? '/api/' : '.',
+  publicPath: process.env.NODE_ENV === 'production' ? '/api/' : '/',
   outputDir: 'dist',
   assetsDir: 'public',
   filenameHashing: true,
   transpileDependencies: [],
-  productionSourceMap: true,
+  productionSourceMap: process.env.NODE_ENV === 'production' ? false : true,
   // pages: generatePagesConfig({ pagesDir: './src/pages/' }),
   chainWebpack: config => {
     // 路径别名
@@ -63,11 +50,7 @@ module.exports = {
       .set('@api', path.resolve(__dirname, './src/api')) 
       .set('@assets', path.resolve(__dirname, './src/assets'))
       .set('@comps', path.resolve(__dirname, './src/components'))
-      .set('@views', path.resolve(__dirname, './src/views')) 
-
-    // 添加样式预处理全局变量插件
-    // const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    // types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+      .set('@views', path.resolve(__dirname, './src/views'))  
   },
   css: {
     loaderOptions: {
