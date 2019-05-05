@@ -7,9 +7,9 @@ module.exports = (api, options, rootOptions) => {
   api.extendPackage({
     scripts: {
       'lint:fix': 'vue-cli-service lint --fix',
-      'build:dev': 'vue-cli-service build --mode dev',
-      'build:test': 'vue-cli-service build --mode test',
-      'build:prod': 'vue-cli-service build --mode prod'
+      'build:sit': 'vue-cli-service build --mode sit',
+      'build:uat': 'vue-cli-service build --mode uat',
+      'build:prod': 'vue-cli-service build --mode production'
     }
   })
 

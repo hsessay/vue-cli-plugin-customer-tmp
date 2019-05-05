@@ -29,11 +29,17 @@ git-cz
 ## 环境变量
 * dev 模式
 ```bash
-NODE_ENV=development
-VUE_APP_BUILD_MODE=DEV
+NODE_ENV=development 
 ```  
+* sit 模式
+```bash
+NODE_ENV=sit 
+``` 
+* uat 模式
+```bash
+NODE_ENV=uat 
+``` 
 * prod 模式
 ```bash
-NODE_ENV=production
-VUE_APP_BUILD_MODE=PROD
+NODE_ENV=production 
 ``` 

@@ -1,2 +1,1 @@
-NODE_ENV=development
-VUE_APP_BUILD_MODE=DEV
+NODE_ENV=development 
