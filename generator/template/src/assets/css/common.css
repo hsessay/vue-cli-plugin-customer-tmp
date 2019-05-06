@@ -1,9 +1,7 @@
-
-
 /*数字字体设置*/
 @font-face {
     font-family: DIN_Alternate;
-    src: url("../fonts/DIN_Alternate_Bold.ttf");
+    src: url("../fonts/DIN-Alternate_Bold.ttf");
 }
 
 /*公共css*/
@@ -15,60 +13,60 @@ a{
 }
 
 /*字体*/
-.xd_fz_12{
+.xd-fz-12{
     font-size: 12px;
 }
-.xd_fz_14{
+.xd-fz-14{
     font-size: 14px;
 }
-.xd_fz_16{
+.xd-fz-16{
     font-size: 16px;
 }
-.xd_fz_18{
+.xd-fz-18{
     font-size: 18px;
 }
-.xd_fz_20{
+.xd-fz-20{
     font-size: 20px;
 }
 
 /*边距*/
-.xd_padd{
+.xd-padd{
     padding:10px;
 }
-.xd_padd_top{
+.xd-padd-top{
     padding-top:10px;
 }
-.xd_padd_bottom{
+.xd-padd-bottom{
     padding-top:10px;
 }
-.xd_padd_about{
+.xd-padd-about{
     padding:0 10px;
 }
-.xd_padd_updowm{
+.xd-padd-updowm{
     padding:10px 0;
 }
-.xd_margintop{
+.xd-margintop{
     margin-top: 10px;
 }
 
 
 /*颜色*/
-.xd_black{
+.xd-black{
     color:#2C2C2C;
 }
-.xd_red{
+.xd-red{
     color:#FD5042;
 }
 
 
 /*文本位置*/
-.xd_text_left{
+.xd-text-left{
     text-align: left;
 }
-.xd_text_center{
+.xd-text-center{
     text-align: center;
 }
-.xd_text_right{
+.xd-text-right{
     text-align: right;
 }
 
@@ -87,55 +85,24 @@ a{
 
 /*图标*/
 .van-icon-qrcode{
-    background: url(../images/xd_qrcode.png) no-repeat;
+    background: url(../images/xd-qrcode.png) no-repeat;
 }
+ 
 
-/*协议*/
-.z_reg_x {
-	padding: 1em;
-	background: #fff;
-	font-size: 14px;
-	line-height: 30px;
-}
-
-.z_reg_x .title {
-	text-align: center;
-    font-size: 16px;
-    margin:0;
-}
-
-.z_reg_x h2 {
-	font-size: 1.1em;
-	font-weight: normal;
-	text-indent: 30px;
-}
-
-.z_reg_x p {
-    text-indent: 30px;
-    color:#4c4c4c;
-    position: initial;
-    left:0;
-    top: 0;
-}
-.z_reg_x b{
-    display: block;
-    text-indent: 30px;
-}
-
-.xd_popup_btn{
+.xd-popup-btn{
     line-height: 44px;
     text-align: center;
     background: #DC2213;
     color:#fff;
 }
-.popup_left,.popup_right{
+.popup-left,.popup-right{
     width: 60px; 
     font-size: 14px; 
 }
-.xd_popup_btn.btn_top{
+.xd-popup-btn.btn-top{
     border-top:1px solid #E6E6E6;
 }
-.xd_popup_btn .btn_fff{
+.xd-popup-btn .btn-fff{
     background: #fff;
     color:#2c2c2c;
 }
@@ -176,7 +143,7 @@ a{
 }
 
 /*vant popup 弹出*/
-.xd_popup_full{
+.xd-popup-full{
     width: 100%;
     height:100%;
 }
@@ -215,7 +182,7 @@ a{
     top: 10px;
     width: 20px;
     height:20px;
-    background: url('../images/xd_dia_close.png') no-repeat center;
+    background: url('../images/xd_dia-close.png') no-repeat center;
 }
 .van-dialog .van-dialog__cancel span{
     display: none;
@@ -241,10 +208,10 @@ a{
 
 
 /*按钮在浏览器底部样式*/
-.xd_btn_but_h{
+.xd-btn-but-h{
     height:64px;
 }
-.xd_btn_but{
+.xd-btn-but{
     position: fixed;
     left:50%;
     bottom:0;
@@ -260,15 +227,12 @@ a{
 }
 
 
-.xd_top_h{
+.xd-top-h{
     padding:0 10px;
     line-height: 26px;
     color:#A7A7A7
 }
 
-.xd_qrcode_t{
+.xd-qrcode-t{
     padding:40px 0;
 }
-
-
-

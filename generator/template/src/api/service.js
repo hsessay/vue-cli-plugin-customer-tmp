@@ -37,23 +37,7 @@ export function getVerifyCode (phoneNumber) {
       return res;
     });
 }
-
-//视频上传
-export function videoToUpload (video) {
-  return network.post (api.uploadVideo, video).then (function (res) {
-    return res;
-  });
-}
-//视频任务完成
-export function videoTaskToSuccess (docId, filename, id) {
-  let params = {
-    docId: docId,
-    fileName: filename,
-    id: id,
-  };
-  return network
-    .post (api.noticUploadVideoSuccess, params) 
-}
+ 
 // 获取微信公众号签名信息
 export function getWxSignatureData (url) {
     return network
