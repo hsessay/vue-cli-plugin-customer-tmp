@@ -2,7 +2,7 @@
 <template>
   <div>
     <img src="../../assets/images/xd-home-banner.png" width="100%">
-    <register-portrait ref="getInput" v-on:getVerifyCode="getVerifyCodeAction"/>
+    <verify-code-cmpt ref="getInput" v-on:getVerifyCode="getVerifyCodeAction"/>
     <div class="xd_btn_t">
       <van-button type="primary" size="normal" @click="login">登录</van-button>
       <div class="xd_fz_12 reg_t">
@@ -16,13 +16,13 @@
 <script>
 // 这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 // 例如：import 《组件名称》 from '《组件路径》';
-import RegisterPortrait from "./components/RegisterPortrait"; 
+import VerifyCodeCmpt from "./components/VerifyCodeCmpt"; 
 import { getVerifyCode, msgLoginService } from "../../api/service.js";
 
 export default {
   // import引入的组件需要注入到对象中才能使用
   components: {
-    RegisterPortrait 
+    VerifyCodeCmpt 
   },
   data() {
     // 这里存放数据

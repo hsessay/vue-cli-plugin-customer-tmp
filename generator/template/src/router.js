@@ -14,7 +14,7 @@ export default new Router({
     { 
       path: '/login', // 登录页面
       name: 'login', 
-      component: () => import('./views/login/LoginWarranty.vue'),
+      component: () => import('./views/login/LoginPage.vue'),
       props: true 
     } 
   ]
