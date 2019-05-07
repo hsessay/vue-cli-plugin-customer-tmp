@@ -1,7 +1,7 @@
 /*数字字体设置*/
 @font-face {
     font-family: DIN_Alternate;
-    src: url("../fonts/DIN-Alternate_Bold.ttf");
+    src: url("../fonts/iconfont.ttf");
 }
 
 /*公共css*/
@@ -182,7 +182,7 @@ a{
     top: 10px;
     width: 20px;
     height:20px;
-    background: url('../images/xd_dia-close.png') no-repeat center;
+    background: url('../images/xd-dia-close.png') no-repeat center;
 }
 .van-dialog .van-dialog__cancel span{
     display: none;
