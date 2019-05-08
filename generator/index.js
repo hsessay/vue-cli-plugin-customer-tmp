@@ -22,11 +22,12 @@ module.exports = (api, options, rootOptions) => {
       'flyio': '^0.6.14',
       'lodash': '^4.17.11', 
       'nprogress': '^0.2.0',
-      'countup': '^1.8.2',
+      'vue-count-to': '^1.0.13',
       'vant': '^1.6.9',
       'weixin-js-sdk': '^1.4.0-test',
       'vue-qr': '^1.5.2',
       'vconsole': '^3.3.0',
+      
     }
   })
 
