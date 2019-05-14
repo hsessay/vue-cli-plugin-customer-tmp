@@ -45,24 +45,24 @@ module.exports = (api, options, rootOptions) => {
   })
 
 
-  api.extendPackage({
-    postcss: {
-      'plugins': {
-        'autoprefixer': {},
-        'postcss-px-to-viewport': {
-          'viewportWidth': 750,
-          'viewportHeight': 1334,
-          'unitPrecision': 3,
-          'viewportUnit': 'vw',
-          'selectorBlackList': [
-            'ignore'
-          ],
-          'minPixelValue': 1,
-          'mediaQuery': false
-        }
-      }
-    }
-  })
+  // api.extendPackage({
+  //   postcss: {
+  //     'plugins': {
+  //       'autoprefixer': {},
+  //       'postcss-px-to-viewport': {
+  //         'viewportWidth': 750,
+  //         'viewportHeight': 1334,
+  //         'unitPrecision': 3,
+  //         'viewportUnit': 'vw',
+  //         'selectorBlackList': [
+  //           'ignore'
+  //         ],
+  //         'minPixelValue': 1,
+  //         'mediaQuery': false
+  //       }
+  //     }
+  //   }
+  // })
 
   // 自动导入
   api.extendPackage({
@@ -86,20 +86,20 @@ module.exports = (api, options, rootOptions) => {
   })
 
   // commitizen - 协助开发者提交标准的 git message
-  api.extendPackage({
-    devDependencies: {
-      'commitizen': '^3.0.2',
-      'cz-conventional-changelog': '^2.1.0'
-    }
-  })
+  // api.extendPackage({
+  //   devDependencies: {
+  //     'commitizen': '^3.0.2',
+  //     'cz-conventional-changelog': '^2.1.0'
+  //   }
+  // })
 
-  api.extendPackage({
-    config: {
-      'commitizen': {
-        'path': './node_modules/cz-conventional-changelog'
-      }
-    }
-  })
+  // api.extendPackage({
+  //   config: {
+  //     'commitizen': {
+  //       'path': './node_modules/cz-conventional-changelog'
+  //     }
+  //   }
+  // })
 
   // commitlint - 校验 git 提交信息格式
   api.extendPackage({
