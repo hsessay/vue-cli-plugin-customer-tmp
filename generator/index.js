@@ -13,23 +13,77 @@ module.exports = (api, options, rootOptions) => {
     }
   })
 
-  // 项目依赖
-  api.extendPackage({
-    dependencies: {
-      'vue-router': '^3.0.1',
+  const commonDependecies = {
+    'vue-router': '^3.0.1',
       'vuex': '^3.0.1',
       'normalize.css': '^8.0.0',
       'flyio': '^0.6.14',
-      'lodash': '^4.17.11', 
+      "lodash": "^4.17.15", 
       'nprogress': '^0.2.0',
-      'vue-count-to': '^1.0.13',
-      'vant': '^1.6.9',
-      'weixin-js-sdk': '^1.4.0-test',
+      'countup': '^1.8.2', 
       'vue-qr': '^1.5.2',
-      'vconsole': '^3.3.0',
+  }
+
+  // 项目依赖
+  // api.extendPackage({
+  //   dependencies: {
       
+  //   }
+  // })
+  const platformDependecies = {}
+
+  if (options.moblie) {
+    platformDependecies = { 
+      'weixin-js-sdk': '^1.4.0-test',
+      'vconsole': '^3.3.0',
+    }
+    // api.extendPackage({
+    //   dependencies: { 
+    //     'weixin-js-sdk': '^1.4.0-test',
+    //     'vconsole': '^3.3.0',
+    //   }
+    // }) 
+
+    // if (options.needUI) {
+    //   api.extendPackage({
+    //     dependencies: {
+    //       'vant': '^1.6.9', 
+    //     }
+    //   })
+    // }
+
+  } 
+  // else {
+    // api.extendPackage({dependencies: {"element-ui": "^2.10.1",}})
+  // }
+
+  const UIDependecies = {}
+  if (options.needUI) {
+    UIDependecies = options.moblie ? {dependencies: {"vant": "^1.6.9",}} : {dependencies: {"element-ui": "^2.10.1",}}
+  }
+
+  api.extendPackage({
+    dependencies: {
+      ...commonDependecies,
+      ...platformDependecies,
+      ...UIDependecies,
     }
   })
+  // api.extendPackage({
+  //   dependencies: {
+  //     'vue-router': '^3.0.1',
+  //     'vuex': '^3.0.1',
+  //     'normalize.css': '^8.0.0',
+  //     'flyio': '^0.6.14',
+  //     'lodash': '^4.17.11', 
+  //     'nprogress': '^0.2.0',
+  //     'countup': '^1.8.2',
+  //     'vant': '^1.6.9',
+  //     'weixin-js-sdk': '^1.4.0-test',
+  //     'vue-qr': '^1.5.2',
+  //     'vconsole': '^3.3.0',
+  //   }
+  // })
 
   // css 预处理 - sass
   // 在 preset.json cssPreprocessor 配置
@@ -39,8 +93,9 @@ module.exports = (api, options, rootOptions) => {
   // 添加 postcss 插件
   api.extendPackage({
     devDependencies: {
-      'postcss-px-to-viewport': '0.0.3',
-      'babel-plugin-import': '^1.11.0'
+      // 'postcss-px-to-viewport': '0.0.3',
+      'babel-plugin-import': '^1.11.0',
+      "babel-plugin-component": "^1.1.1",
     }
   })
 
@@ -102,24 +157,24 @@ module.exports = (api, options, rootOptions) => {
   // })
 
   // commitlint - 校验 git 提交信息格式
-  api.extendPackage({
-    devDependencies: {
-      '@commitlint/cli': '^7.2.1',
-      '@commitlint/config-conventional': '^7.1.2'
-    }
-  })
+  // api.extendPackage({
+  //   devDependencies: {
+  //     '@commitlint/cli': '^7.2.1',
+  //     '@commitlint/config-conventional': '^7.1.2'
+  //   }
+  // })
 
-  api.extendPackage({
-    gitHooks: {
-      'commit-msg': 'commitlint -e'
-    }
-  })
+  // api.extendPackage({
+  //   gitHooks: {
+  //     'commit-msg': 'commitlint -e'
+  //   }
+  // })
 
-  api.extendPackage({
-    commitlint: {
-      'extends': ['@commitlint/config-conventional']
-    }
-  })
+  // api.extendPackage({
+  //   commitlint: {
+  //     'extends': ['@commitlint/config-conventional']
+  //   }
+  // })
 
   // 删除 vue-cli3 默认目录
   api.render(files => {
@@ -129,7 +184,12 @@ module.exports = (api, options, rootOptions) => {
   })
 
   // 生成项目文件
-  api.render('./template')
+  if (options.moblie) {
+    api.render('./template/moblie')
+  } else {
+    api.render('./template/web')
+  }
+  
 
   // 屏蔽 generator 之后的文件写入操作
   api.onCreateComplete(() => {

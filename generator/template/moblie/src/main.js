@@ -19,10 +19,11 @@ Vue.use(Button).use(Cell).use(Popup).use(Checkbox).use(CheckboxGroup)
    .use(Search).use(Slider).use(Stepper).use(Switch).use(SwitchCell)
    .use(Uploader).use(Actionsheet).use(Dialog).use(Loading).use(CellGroup)
 
-
-const vConsole = new Vconsole (); 
-Vue.use (vConsole); 
-Vue.config.productionTip = false; 
+  if (process.env.NODE_ENV !== 'production') {
+    const vConsole = new Vconsole()
+    Vue.use(vConsole)
+    Vue.config.productionTip = false
+  }
 
 // let vue = 
 new Vue ({
