@@ -30,7 +30,7 @@ module.exports = (api, options, rootOptions) => {
       
   //   }
   // })
-  const platformDependecies = {}
+  let platformDependecies = {}
 
   if (options.moblie) {
     platformDependecies = { 
@@ -57,7 +57,7 @@ module.exports = (api, options, rootOptions) => {
     // api.extendPackage({dependencies: {"element-ui": "^2.10.1",}})
   // }
 
-  const UIDependecies = {}
+  let UIDependecies = {}
   if (options.needUI) {
     UIDependecies = options.moblie ? {dependencies: {"vant": "^1.6.9",}} : {dependencies: {"element-ui": "^2.10.1",}}
   }
