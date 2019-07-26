@@ -11,18 +11,7 @@ module.exports = (api, options, rootOptions) => {
       'build:uat': 'vue-cli-service build --mode uat',
       'build:prod': 'vue-cli-service build --mode production'
     }
-  })
-
-  // const commonDependecies = {
-  //   'vue-router': '^3.0.1',
-  //     'vuex': '^3.0.1',
-  //     'normalize.css': '^8.0.0',
-  //     'flyio': '^0.6.14',
-  //     "lodash": "^4.17.15", 
-  //     'nprogress': '^0.2.0',
-  //     'countup': '^1.8.2', 
-  //     'vue-qr': '^1.5.2',
-  // }
+  }) 
 
   // 项目依赖
   api.extendPackage({
@@ -44,47 +33,14 @@ module.exports = (api, options, rootOptions) => {
       dependencies: { 
         'weixin-js-sdk': '^1.4.0-test',
         'vconsole': '^3.3.0',
+        'vant': '^1.6.9', 
       }
-    }) 
-
-    if (options.needUI) {
-      api.extendPackage({
-        dependencies: {
-          'vant': '^1.6.9', 
-        }
-      })
-    } 
-  } else if (!options.moblie && options.needUI) {
+    })  
+  } else {
     api.extendPackage({dependencies: {"element-ui": "^2.10.1",}})
   }
 
-  // let UIDependecies = {}
-  // if (options.needUI) {
-  //   UIDependecies = options.moblie ? {dependencies: {"vant": "^1.6.9",}} : {dependencies: {"element-ui": "^2.10.1",}}
-  // }
-
-  // api.extendPackage({
-  //   dependencies: {
-  //     ...commonDependecies,
-  //     ...platformDependecies,
-  //     ...UIDependecies,
-  //   }
-  // })
-  // api.extendPackage({
-  //   dependencies: {
-  //     'vue-router': '^3.0.1',
-  //     'vuex': '^3.0.1',
-  //     'normalize.css': '^8.0.0',
-  //     'flyio': '^0.6.14',
-  //     'lodash': '^4.17.11', 
-  //     'nprogress': '^0.2.0',
-  //     'countup': '^1.8.2',
-  //     'vant': '^1.6.9',
-  //     'weixin-js-sdk': '^1.4.0-test',
-  //     'vue-qr': '^1.5.2',
-  //     'vconsole': '^3.3.0',
-  //   }
-  // })
+  
 
   // css 预处理 - sass
   // 在 preset.json cssPreprocessor 配置
@@ -140,42 +96,7 @@ module.exports = (api, options, rootOptions) => {
       }
     }
   })
-
-  // commitizen - 协助开发者提交标准的 git message
-  // api.extendPackage({
-  //   devDependencies: {
-  //     'commitizen': '^3.0.2',
-  //     'cz-conventional-changelog': '^2.1.0'
-  //   }
-  // })
-
-  // api.extendPackage({
-  //   config: {
-  //     'commitizen': {
-  //       'path': './node_modules/cz-conventional-changelog'
-  //     }
-  //   }
-  // })
-
-  // commitlint - 校验 git 提交信息格式
-  // api.extendPackage({
-  //   devDependencies: {
-  //     '@commitlint/cli': '^7.2.1',
-  //     '@commitlint/config-conventional': '^7.1.2'
-  //   }
-  // })
-
-  // api.extendPackage({
-  //   gitHooks: {
-  //     'commit-msg': 'commitlint -e'
-  //   }
-  // })
-
-  // api.extendPackage({
-  //   commitlint: {
-  //     'extends': ['@commitlint/config-conventional']
-  //   }
-  // })
+ 
 
   // 删除 vue-cli3 默认目录
   api.render(files => {
