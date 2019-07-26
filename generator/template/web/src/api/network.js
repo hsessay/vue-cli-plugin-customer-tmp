@@ -3,7 +3,7 @@
   add by zxy at 2019-03-14 17:19:18
 */  
 import Fly from 'flyio/dist/npm/fly';
-import {Dialog, Toast} from 'vant';
+// import {Dialog, Toast} from 'vant';
 
 const fly = new Fly (); 
 // 添加请求拦截器
@@ -39,35 +39,35 @@ export default {
   get: function (url, params, withoutLoading) {
     return new Promise (function (resolve, reject) {
       if (!withoutLoading) {
-        Toast.loading ({
-          duration: 0, // 持续展示 toast
-          forbidClick: true, // 禁用背景点击
-          loadingType: 'spinner',
-          message: '加载中...',
-        });
+        // Toast.loading ({
+        //   duration: 0, // 持续展示 toast
+        //   forbidClick: true, // 禁用背景点击
+        //   loadingType: 'spinner',
+        //   message: '加载中...',
+        // });
       }
       fly
         .get (url, {
           params: params,
         })
         .then (function (response) {
-          Toast.clear ();
+          // Toast.clear ();
           if (response.data.code === '200') {
             resolve (
               response.data.datas ? response.data.datas : response.data.data
             );
           } else {
-            Dialog.alert ({
-              message: response.data.message,
-            });
+            // Dialog.alert ({
+            //   message: response.data.message,
+            // });
             return Promise.reject (response);
           }
         })
         .catch (function (error) {
-          Toast.clear ();
-          Dialog.alert ({
-            message: '网络请求错误',
-          });
+          // Toast.clear ();
+          // Dialog.alert ({
+          //   message: '网络请求错误',
+          // });
           if (error.notRealPromiseException) {
             // 主动中断 Promise 链
             return true;
@@ -88,12 +88,12 @@ export default {
   post: function (url, params, withoutLoading) {
     return new Promise (function (resolve, reject) {
       if (!withoutLoading) {
-        Toast.loading ({
-          duration: 0, // 持续展示 toast
-          forbidClick: true, // 禁用背景点击
-          loadingType: 'spinner',
-          message: '加载中...',
-        });
+        // Toast.loading ({
+        //   duration: 0, // 持续展示 toast
+        //   forbidClick: true, // 禁用背景点击
+        //   loadingType: 'spinner',
+        //   message: '加载中...',
+        // });
       } 
       fly
         .post (
@@ -106,20 +106,20 @@ export default {
           // },
         )
         .then (function (response) {
-          Toast.clear ();
+          // Toast.clear ();
           if (response.data.code === '200') {
             resolve (
               response.data.data ? response.data.data : response.data.datas
             );
           } else {
-            Dialog.alert ({
-              message: response.data.message,
-            });
+            // Dialog.alert ({
+            //   message: response.data.message,
+            // });
             return Promise.reject (response);
           }
         })
         .catch (function (error) {
-          Toast.clear ();
+          // Toast.clear ();
           if (error.notRealPromiseException) {
             // 主动中断 Promise 链
             return true;
