@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -14,13 +13,13 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: {name: 'login'}
-    }, 
-    { 
+      redirect: { name: 'login' }
+    },
+    {
       path: '/login', // 登录页面
-      name: 'login', 
+      name: 'login',
       component: () => import('./views/login/LoginPage.vue'),
-      meta: { noLoginAuth: true }
+      // meta: { noLoginAuth: true }
     }
   ]
 })
@@ -29,7 +28,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   if (!to.meta.noLoginAuth && !Vue.prototype.$userInfo) {
     let { openid, token } = to.query
-    let loginPath = `${config.orginUrl}${config.basePath}/login?redirect=${config.orginUrl}${config.basePath}${to.fullPath}`
+    let loginPath = `${config.api}${config.basePath}/login?redirect=${config.orginUrl}${config.originBasePath}${to.fullPath}`
     if (openid) {
       // opneid登陆
       openIdLogin(openid).then(res => {
@@ -52,7 +51,8 @@ router.beforeEach((to, from, next) => {
           Toast(res.message || '网络错误')
           window.location.href = loginPath
         }
-      }).catch(() => {
+      }).catch((err) => {
+        console.log(err)
         window.location.href = loginPath
       })
     } else {
