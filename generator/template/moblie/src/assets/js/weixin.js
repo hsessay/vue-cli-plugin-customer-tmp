@@ -1,4 +1,4 @@
-import { getWxSignatureData } from '../../api/service';
+import { getWxSignatureData } from '../../api/common-service';
 import wx from 'weixin-js-sdk';
 
 export default {
