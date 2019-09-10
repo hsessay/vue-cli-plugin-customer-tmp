@@ -66,6 +66,7 @@ module.exports = {
    * 完整选项：https://github.com/chimurai/http-proxy-middleware#proxycontext-config
    */
   devServer: {
+    port: 9099,
     proxy: {
       '/esb': {
         target: 'http://htsit.hanhua.com' // 注意：访问esb接口时，需在原esb接口path之前增加esb

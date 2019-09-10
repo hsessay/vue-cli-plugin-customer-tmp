@@ -17,8 +17,6 @@
 // 这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 // 例如：import 《组件名称》 from '《组件路径》';
 import VerifyCodeCmpt from "./components/VerifyCodeCmpt"; 
-import { getVerifyCode, msgLoginService } from "../../api/service.js";
-
 export default {
   // import引入的组件需要注入到对象中才能使用
   components: {
@@ -59,11 +57,11 @@ export default {
         return;
       }
       var _this = this;
-      msgLoginService(phoneNum, this.codeId, verifyCode)
-        .then(function(res) {
-          _this.$store.commit("updateUserInfo", res);
-          _this.jumpToNextPage();
-        }) 
+      // msgLoginService(phoneNum, this.codeId, verifyCode)
+      //   .then(function(res) {
+      //     _this.$store.commit("updateUserInfo", res);
+      //     _this.jumpToNextPage();
+      //   }) 
     },
 
     jumpToNextPage() {
@@ -78,10 +76,10 @@ export default {
     getVerifyCodeAction() {
       this.phoneNum = this.$refs.getInput.phoneNumber;
       var _this = this;
-      getVerifyCode(this.phoneNum)
-        .then(function(resp) {
-          _this.codeId = resp.sessionId;
-        }) 
+      // getVerifyCode(this.phoneNum)
+      //   .then(function(resp) {
+      //     _this.codeId = resp.sessionId;
+      //   }) 
     }
   }
 };
