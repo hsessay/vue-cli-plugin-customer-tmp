@@ -1,1 +1,3 @@
-NODE_ENV=production 
+NODE_ENV=production
+VUE_APP_DOMAIN=http://t.hanhua.com
+VUE_APP_BASEURL=/vue/tong/v1

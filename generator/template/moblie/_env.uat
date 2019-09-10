@@ -1,1 +1,3 @@
 NODE_ENV=uat
+VUE_APP_DOMAIN=http://htuat.hanhua.com
+VUE_APP_BASEURL=/vue/tong/v1

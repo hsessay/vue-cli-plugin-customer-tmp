@@ -52,7 +52,7 @@ Date.prototype.weekStr = function (type) {
   let week = ''
   switch (this.getDay()) {
     case 0:
-      week = type === 2 ? '天': '日'
+      week = type === 2 ? '天' : '日'
       break
     case 1:
       week = '一'
@@ -115,7 +115,7 @@ Date.prototype.dayInYear = function () {
   let arr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
   let month = this.getMonth()
   let dayCount = 0
-  for (let index = 0; index < month; index ++) {
+  for (let index = 0; index < month; index++) {
     dayCount += arr[index]
   }
   let day = this.getDate()
@@ -169,7 +169,7 @@ Date.prototype.daysBetween = function (otherDate) {
     if (this.getTime() === otherDate.getTime()) {
       return 0
     }
-    return Math.ceil(Math.abs((this.getTime() - otherDate.getTime())/ 86400000))
+    return Math.ceil(Math.abs((this.getTime() - otherDate.getTime()) / 86400000))
   }
   throw new Error('error date format!')
 }
@@ -182,7 +182,7 @@ Date.prototype.daysBetween = function (otherDate) {
 Date.prototype.offset = function (offset) {
   let regPos = /^\d+$/ // 正整数
   let regNeg = /^\-[1-9]*$/ // 负整数
-  if(regPos.test(offset) || regNeg.test(offset)){
+  if (regPos.test(offset) || regNeg.test(offset)) {
     return new Date(this.getTime() + offset * 86400000)
   }
   throw new Error('error offset format!')
@@ -193,7 +193,7 @@ Date.prototype.offset = function (offset) {
  */
 Date.prototype.isLeapYear = function () {
   let year = this.getFullYear()
-  return  (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
+  return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
 }
 
 /**
@@ -207,7 +207,7 @@ function getDateStringFromMillisecond(milliseconds, format) {
     let date = new Date(milliseconds)
     return date.format(format)
   }
-  throw new Error( 'error milliseconds format!')
+  throw new Error('error milliseconds format!')
 }
 
 /**
@@ -217,7 +217,7 @@ function getDateStringFromMillisecond(milliseconds, format) {
  */
 function getMillisFrom1970WithDateString(dateString) {
   if (typeof dateString === 'string') {
-    let date = new Date(Date.parse(dateString.replace(/-/g,"/")))
+    let date = new Date(Date.parse(dateString.replace(/-/g, "/")))
     return date.getTime()
   }
   throw new Error('error dateString format!')
@@ -230,8 +230,8 @@ function getMillisFrom1970WithDateString(dateString) {
  */
 function isLeapYear(dateStr) {
   if (typeof dateStr === 'string' && dateStr.length >= 4) {
-    let year = parseInt(dateStr.substring(0,4))
-    return  (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
+    let year = parseInt(dateStr.substring(0, 4))
+    return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
   }
   throw new Error('error dateStr format!')
 }
@@ -247,7 +247,7 @@ function isLeapYear(dateStr) {
  * param idNumber
  * returns 性别
  */
-function getGenderByIDNumber (idNumber) {
+function getGenderByIDNumber(idNumber) {
   if (typeof idNumber === 'string') {
     let sexCode = 1
     if (idNumber.length === 15) {
@@ -268,7 +268,7 @@ function getGenderByIDNumber (idNumber) {
 /**
  * 检测是否是微信web浏览器
  */
-function isWeiXinWeb () {
+function isWeiXinWeb() {
   let agent = window.navigator.userAgent.toLowerCase()
   return agent.search(/micromessenger/i) !== -1
 }
@@ -278,7 +278,7 @@ function isWeiXinWeb () {
  *  param idNumber
  *  returns {*}
  */
-function getBirthByIDNumber (idNumber) {
+function getBirthByIDNumber(idNumber) {
   if (typeof idNumber === 'string' && (idNumber.length === 18 || idNumber.length === 15)) {
     let bir = idNumber.substr(6, 4)
     bir += '-'
@@ -295,7 +295,7 @@ function getBirthByIDNumber (idNumber) {
  * param idNumber
  * returns {string}
  */
-function encryptIDNumber (idNumber) {
+function encryptIDNumber(idNumber) {
   let result = ''
   if (typeof idNumber === 'string' && (idNumber.length === 18 || idNumber.length === 15)) {
     let last = idNumber.slice(idNumber.length - 4)
@@ -315,7 +315,7 @@ function encryptIDNumber (idNumber) {
  * param 护照号码
  * returns {string}
  */
-function encryptPassport (passport) {
+function encryptPassport(passport) {
   let result = ''
   if (typeof passport === 'string' && passport.length > 4) {
     let lastString = passport.slice(passport.length - 2)
@@ -342,7 +342,7 @@ function encryptPassport (passport) {
  * param 传入对象
  * returns {boolean}
  */
-function isEmptyObject (value) {
+function isEmptyObject(value) {
   for (let property in value) {
     if (value.hasOwnProperty(property)) {
       return false
@@ -356,7 +356,7 @@ function isEmptyObject (value) {
  * param cache
  * returns {*}
  */
-function deepCopy (obj, cache = []) {
+function deepCopy(obj, cache = []) {
   if (!obj || typeof obj !== 'object') {
     return obj
   }
@@ -383,14 +383,14 @@ function deepCopy (obj, cache = []) {
  ************************************************************************************/
 
 // 是否是纯数字
-function isPureNumber (val) {
+function isPureNumber(val) {
   let pattern = /^[0-9]*$/
   return pattern.test(val)
 }
 
 
 // 是否是纯中文
-function isPureChinese (val) {
+function isPureChinese(val) {
   let pattern = /^[\u4e00-\u9fa5]{1,}$/
   return pattern.test(val)
 }
@@ -484,7 +484,7 @@ let checkIdentityCode = function (code) {
  * param value
  * returns {boolean}
  */
-function isPureEng (value) {
+function isPureEng(value) {
   if (typeof value === 'string') {
     let regexEN = new RegExp('^[a-zA-Z]+$')
     return regexEN.test(value)
@@ -497,9 +497,9 @@ function isPureEng (value) {
  * param number
  * returns {boolean}
  */
-function isPhoneNo (number) {
+function isPhoneNo(number) {
   if (typeof number === 'string') {
-    let regex = new RegExp('^1[0-9]{10}$')
+    let regex = new RegExp('^1[3-9]{1}[0-9]{9}$')
     return regex.test(number)
   }
   return false
@@ -510,7 +510,7 @@ function isPhoneNo (number) {
  * param email
  * returns {boolean}
  */
-function isEmail (email) {
+function isEmail(email) {
   if (typeof email === 'string') {
     let regex = /^[A-Za-zd0-9-_.]+ ([A-Za-zd0-9_-]+[.])+[A-Za-zd0-9]{2,20}$/
     return regex.test(email)
@@ -523,7 +523,7 @@ function isEmail (email) {
  * param passport
  * returns {boolean}
  */
-function isPassport (passport) {
+function isPassport(passport) {
   if (typeof passport === 'string') {
     let regex = new RegExp('^[A-Za-z0-9]{1,50}$')
     return regex.test(passport)
@@ -535,7 +535,7 @@ function isPassport (passport) {
  * 密码强度校验
  * returns {boolean}
  */
-function checkPassword (val) {
+function checkPassword(val) {
   let regex = new RegExp('(?!.*[\u4E00-\u9FA5\\s])(?!^[a-zA-Z]+$)(?!^[\\d]+$)(?!^[^a-zA-Z\\d]+$)^.{6,20}$')
   return regex.test(val)
 }
@@ -550,7 +550,7 @@ function checkPassword (val) {
  * param 传入字符串
  * returns {boolean}
  */
-function isEmptyString (value) {
+function isEmptyString(value) {
   return typeof value === 'string' && value.length <= 0 && value !== 'null' && value.toString() !== 'NaN'
 }
 
@@ -560,12 +560,12 @@ function isEmptyString (value) {
  */
 String.prototype.encrypt = function (start, end) {
   if (this.length < end) {
-    throw new Error ('String length error')
+    throw new Error('String length error')
   }
   let str = this.substring(start, end)
   let code = str.replace(/\w/g, '*')
   let first = this.substring(0, start)
-  let last =  this.substring(end, this.length)
+  let last = this.substring(end, this.length)
   return first + code + last
 }
 
@@ -574,7 +574,7 @@ String.prototype.encrypt = function (start, end) {
  * value 传入字符串
  * returns {boolean}
  */
-function convertToString (value) {
+function convertToString(value) {
   if (value === null || value === undefined) {
     return ''
   }
@@ -596,7 +596,7 @@ String.prototype.firstLetterUpperCase = function () {
  * value 对象
  * returns {boolean}
  */
-function isNativeJSON (value) {
+function isNativeJSON(value) {
   return window.JSON && Object.prototype.toString.call(value) === '[object JSON]'
 }
 
@@ -607,7 +607,7 @@ function isNativeJSON (value) {
  ************************************************************************************/
 
 // 是否为空数组
-function isEmptyArray (value) {
+function isEmptyArray(value) {
   if (Array.isArray) {
     return Array.isArray(value) && value.length === 0
   }
@@ -615,7 +615,7 @@ function isEmptyArray (value) {
 }
 
 // 是否为非空数组
-function isNotEmptyArray (value) {
+function isNotEmptyArray(value) {
   if (Array.isArray) {
     return Array.isArray(value) && value.length > 0
   }
@@ -623,7 +623,7 @@ function isNotEmptyArray (value) {
 }
 
 // 数组去重 原地修改数组
-Array.prototype.unique =  function (isEqual) {
+Array.prototype.unique = function (isEqual) {
   let count = this.length
   if (count === 0) {
     return
@@ -718,6 +718,87 @@ Array.prototype.subtracting = function (otherArray) {
   return this.filter((item) => !set.has(item))
 }
 
+/**
+  * 密码只能是字母或数字的组合，且不能少于6位或超出20位！
+  * */
+function checkPwd(pwd, params) {
+  let result = false;
+  if (pwd) {
+    result = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(pwd);
+  }
+  return result;
+}
+/**
+ * 对象转请求参数格式字符串
+ * @returns {String}
+ */
+function objectToQuery(/* Object */ map) {
+  let backstop = {};
+  let enc = encodeURIComponent, pairs = [];
+  for (let name in map) {
+    let value = map[name];
+    if (value != backstop[name]) {
+      let assign = enc(name) + '=';
+      if (value instanceof Array) {
+        for (let i = 0, l = value.length; i < l; ++i) {
+          pairs.push(assign + enc(value[i]));
+        }
+      } else {
+        pairs.push(assign + enc(value));
+      }
+    }
+  }
+  return pairs.join('&'); // String
+}
+
+function queryToObject(str) {
+	let dec = decodeURIComponent, qp = str.split("&"), ret = {}, name, val;
+    for(let i = 0, l = qp.length, item; i < l; ++i){
+        item = qp[i];
+        if(item.length){
+            let s = item.indexOf("=");
+            if(s < 0){
+                name = dec(item); val = "";
+            } else {
+                name = dec(item.slice(0, s));
+                val  = dec(item.slice(s + 1));
+            }
+            
+            if (typeof ret[name] == "string"){ // inline'd type check
+                ret[name] = [ret[name]];
+            }
+
+            if(Array.isArray(ret[name])) {
+                ret[name].push(val);
+            } else { ret[name] = val; }
+        }
+    }
+    return ret; // Object
+}
+
+function getUrlQuery() {
+	try {
+		let search = window.location.search;
+		if (search.indexOf("?") >= 0) {
+			search = search.substring(search.indexOf("?") + 1, search.length) || "";
+		}
+		return queryToObject(search);
+	} catch(e) { return {}; }
+}
+
+
+let session = {
+  setItem:function(key,value){
+    if(window.sessionStorage){
+      sessionStorage.setItem(key,JSON.stringify(value));
+    }
+  },
+  getItem:function(key){
+    if(window.sessionStorage){
+      return JSON.parse(sessionStorage.getItem(key));
+    }
+  }
+}
 export default {
   isEmail,
   deepCopy,
@@ -741,5 +822,10 @@ export default {
   getBirthByIDNumber,
   getGenderByIDNumber,
   getDateStringFromMillisecond,
-  getMillisFrom1970WithDateString
+  getMillisFrom1970WithDateString,
+  checkPwd,
+  objectToQuery,
+  queryToObject,
+  getUrlQuery,
+  session
 }

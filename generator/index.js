@@ -19,11 +19,11 @@ module.exports = (api, options, rootOptions) => {
       'vue-router': '^3.0.1',
       'vuex': '^3.0.1',
       'normalize.css': '^8.0.0',
-      'flyio': '^0.6.14',
-      "lodash": "^4.17.15", 
-      'nprogress': '^0.2.0',
-      'countup': '^1.8.2', 
-      'vue-qr': '^1.5.2',
+      'flyio': '>=0.6.14',
+      "lodash": ">=4.17.15", 
+      'nprogress': '>=0.2.0',
+      'countup': '>=1.8.2', 
+      'vue-qr': '>=1.5.2',
     }
   })
   let platformDependecies = {}
@@ -32,8 +32,8 @@ module.exports = (api, options, rootOptions) => {
     api.extendPackage({
       dependencies: { 
         'weixin-js-sdk': '^1.4.0-test',
-        'vconsole': '^3.3.0',
-        'vant': '^1.6.9', 
+        'vconsole': '>=3.3.0',
+        'vant': '>=2.1.1', 
       }
     })  
   } else {
