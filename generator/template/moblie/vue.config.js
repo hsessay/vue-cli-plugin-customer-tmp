@@ -40,6 +40,11 @@ module.exports = {
   filenameHashing: true, 
   productionSourceMap: process.env.NODE_ENV === 'production' ? false : true, 
   chainWebpack: config => {
+    // 移除 prefetch 插件
+    config.plugins.delete('prefetch')
+    // 移除 preload 插件
+    config.plugins.delete('preload')
+
     // 路径别名
     config.resolve.alias
       .set('@', path.resolve(__dirname, './src'))
@@ -62,14 +67,29 @@ module.exports = {
    */
   devServer: {
     proxy: {
+      '/esb': {
+        target: 'http://htsit.hanhua.com' // 注意：访问esb接口时，需在原esb接口path之前增加esb
+        // target: 'http://t.hanhua.com'
+      },
       '/api': {
-        target: 'http://htsit.hanhua.com' 
+        target: 'http://htsit.hanhua.com'
+        // target: 'http://t.hanhua.com'
       },
       '/tong2': {
-        target: 'http://htsit.hanhua.com' 
+        target: 'http://htsit.hanhua.com'
+        // target: 'http://t.hanhua.com'
       },
       '/dcloud': {
         target: 'http://htsit.hanhua.com'
+        // target: 'http://t.hanhua.com'
+      },
+      '/hhcrq-api': {
+        target: 'http://htsit.hanhua.com'
+        // target: 'http://t.hanhua.com'
+      },
+      '/anshuo-api': {
+        target: 'http://htsit.hanhua.com'  // 注意：访问安硕接口时，需在原安硕接口path之前增加anshuo-api
+        // target: 'http://t.hanhua.com' 
       }
     }
   }
