@@ -38,6 +38,7 @@ module.exports = (api, options, rootOptions) => {
     })  
   } else {
     api.extendPackage({dependencies: {"element-ui": "^2.10.1",}})
+    api.extendPackage({devDependencies: {"babel-preset-es2015": "^6.24.1"}})
   }
 
   
