@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import { Toast } from 'vant'
 import { openIdLogin, getUserInfo } from './api/common-service'
 import config from './config'
 
@@ -18,8 +17,8 @@ const router = new Router({
     {
       path: '/login', // 登录页面
       name: 'login',
-      component: () => import('./views/login/LoginPage.vue'),
-      // meta: { noLoginAuth: true }
+      meta: { noLoginAuth: true },
+      component: () => import('./views/login/LoginPage.vue')
     }
   ]
 })
@@ -36,7 +35,6 @@ router.beforeEach((to, from, next) => {
           Vue.prototype.$userInfo = res.model
           next()
         } else {
-          Toast(res.message || '网络错误')
           window.location.href = loginPath
         }
       })
@@ -48,7 +46,6 @@ router.beforeEach((to, from, next) => {
           console.log(Vue.prototype.$userInfo)
           next()
         } else {
-          Toast(res.message || '网络错误')
           window.location.href = loginPath
         }
       }).catch((err) => {

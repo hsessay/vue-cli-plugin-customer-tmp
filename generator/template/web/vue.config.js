@@ -1,6 +1,8 @@
 // const fs = require('fs')
 const path = require('path')
-
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 /**
  * 生成多页面配置
  * @param {string} pagesDir 多页面文件夹相对路径
@@ -33,13 +35,23 @@ const path = require('path')
 //     ...customConfig
 //   }
 // }
- 
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'development' ? '/' : '/api/', 
-  filenameHashing: true, 
-  productionSourceMap: process.env.NODE_ENV === 'production' ? false : true, 
+  // publicPath: process.env.NODE_ENV === 'development' ? '/' : '/vue/tong/v1',
+  publicPath: process.env.VUE_APP_BASEURL,
+  filenameHashing: true,
+  productionSourceMap: (process.env.NODE_ENV !== 'production') && (process.env.NODE_ENV !== 'preproduction'),
   chainWebpack: config => {
+    // 添加分析工具
+    if (process.env.NODE_ENV === 'production') {
+      if (process.env.npm_config_report) {
+        config
+          .plugin('webpach-bundle-analyzer')
+          .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+          .end()
+        config.plugin.delete('predetch')
+      }
+    }
     // 移除 prefetch 插件
     config.plugins.delete('prefetch')
     // 移除 preload 插件
@@ -47,18 +59,18 @@ module.exports = {
 
     // 路径别名
     config.resolve.alias
-      .set('@', path.resolve(__dirname, './src'))
-      .set('@api', path.resolve(__dirname, './src/api')) 
-      .set('@assets', path.resolve(__dirname, './src/assets'))
-      .set('@comps', path.resolve(__dirname, './src/components'))
-      .set('@views', path.resolve(__dirname, './src/views'))  
+      .set('@', resolve('src'))
+      .set('@api', resolve('src/api'))
+      .set('@assets', resolve('/src/assets'))
+      .set('@comps', resolve('src/components'))
+      .set('@views', resolve('src/views'))
   },
   css: {
     loaderOptions: {
-        sass: {
-          // @是src的别名
-          data: `@import "@/assets/css/variable.scss";`
-        }
+      sass: {
+        // @是src的别名
+        data: `@import "@/assets/css/variable.scss";`
+      }
     }
   },
   /**
@@ -66,10 +78,9 @@ module.exports = {
    * 完整选项：https://github.com/chimurai/http-proxy-middleware#proxycontext-config
    */
   devServer: {
-    port: 9099,
     proxy: {
       '/esb': {
-        target: 'http://htsit.hanhua.com' // 注意：访问esb接口时，需在原esb接口path之前增加esb
+        target: 'http://htsit.hanhua.com' // http://t.hanhua.com
         // target: 'http://t.hanhua.com'
       },
       '/api': {
@@ -89,8 +100,12 @@ module.exports = {
         // target: 'http://t.hanhua.com'
       },
       '/anshuo-api': {
-        target: 'http://htsit.hanhua.com'  // 注意：访问安硕接口时，需在原安硕接口path之前增加anshuo-api
-        // target: 'http://t.hanhua.com' 
+        target: 'http://htsit.hanhua.com'
+        // target: 'http://t.hanhua.com'
+        // target: 'http://10.10.80.206:9085'
+      },
+      '/perbank': {
+        target: 'http://10.10.80.78:9082'
       }
     }
   }

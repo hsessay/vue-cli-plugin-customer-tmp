@@ -1,9 +1,9 @@
 <!-- 登录页面 -->
 <template>
   <div>
-    <img src="../../assets/images/xd-home-banner.png" width="100%"> 
+    <img src="../../assets/images/xd-home-banner.png" width="100%">
     <div class="xd_btn_t">
-      <el-button type="primary" @click="login">登录</el-button> 
+      <el-button type="primary" @click="login">登录</el-button>
       <div class="xd_fz_12 reg_t">
         没有账号，
         <a href="javascript:;" @click="toRegisterPage">去注册</a>
@@ -14,20 +14,20 @@
 
 <script>
 // 这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
-// 例如：import 《组件名称》 from '《组件路径》'; 
-import { getVerifyCode } from "../../api/service.js";
+// 例如：import 《组件名称》 from '《组件路径》';
+import { getVerifyCode } from '../../api/common-service'
 
 export default {
   // import引入的组件需要注入到对象中才能使用
-  components: { 
+  components: {
   },
-  data() {
+  data () {
     // 这里存放数据
     return {
-      codeId: ""
-    };
+      codeId: ''
+    }
   },
-  created() { 
+  created () {
   },
   // 监听属性 类似于data概念
   computed: {},
@@ -35,9 +35,9 @@ export default {
   watch: {},
   // 方法集合
   methods: {
-    toRegisterPage() { 
+    toRegisterPage () {
     },
-    login() {
+    login () {
       console.log('登录')
       // var phoneNum = this.$refs.getInput.phoneNumber;
       // var verifyCode = this.$refs.getInput.verifyCode;
@@ -60,28 +60,28 @@ export default {
       //   .then(function(res) {
       //     _this.$store.commit("updateUserInfo", res);
       //     _this.jumpToNextPage();
-      //   }) 
+      //   })
     },
 
-    jumpToNextPage() {
-      if (this.$route.query.type === "getCustomer") {
-        this.$router.replace({ path: "estimatepre" }); 
+    jumpToNextPage () {
+      if (this.$route.query.type === 'getCustomer') {
+        this.$router.replace({ path: 'estimatepre' })
       } else {
-        this.$router.replace({ path: "minepersonal" });
+        this.$router.replace({ path: 'minepersonal' })
       }
       console.log(this.$router)
     },
 
-    getVerifyCodeAction() {
-      this.phoneNum = this.$refs.getInput.phoneNumber;
-      var _this = this;
+    getVerifyCodeAction () {
+      this.phoneNum = this.$refs.getInput.phoneNumber
+      var _this = this
       getVerifyCode(this.phoneNum)
-        .then(function(resp) {
-          _this.codeId = resp.sessionId;
-        }) 
+        .then(function (resp) {
+          _this.codeId = resp.sessionId
+        })
     }
   }
-};
+}
 </script>
 <style lang='scss' scoped>
 //@import url(); 引入公共css类

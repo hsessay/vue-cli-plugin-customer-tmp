@@ -3,7 +3,7 @@
   add by zxy at 2019-03-14 17:19:18
 */
 import Fly from 'flyio/dist/npm/fly'
-import { Toast } from 'vant'
+// import { Toast } from 'vant'
 import config from '../config'
 
 const fly = new Fly()
@@ -66,21 +66,21 @@ export default {
   get: function (url, params, config = {}) {
     return new Promise(function (resolve, reject) {
       if (!config.hideLoading) {
-        Toast.loading({
-          duration: 0, // 持续展示 toast
-          forbidClick: true, // 禁用背景点击
-          loadingType: 'spinner',
-          message: '加载中...'
-        })
+        // Toast.loading({
+        //   duration: 0, // 持续展示 toast
+        //   forbidClick: true, // 禁用背景点击
+        //   loadingType: 'spinner',
+        //   message: '加载中...'
+        // })
       }
       fly.get(url, params).then(function (response) {
-        Toast.clear()
+        // Toast.clear()
         if (process.env.NODE_ENV !== 'production') {
           console.log(response)
         }
         resolve(response)
       }).catch(function (error) {
-        Toast.clear()
+        // Toast.clear()
         reject(error)
       })
     })
@@ -97,21 +97,21 @@ export default {
   post: function (url, params, config = {}) {
     return new Promise(function (resolve, reject) {
       if (!config.hideLoading) {
-        Toast.loading({
-          duration: 0, // 持续展示 toast
-          forbidClick: true, // 禁用背景点击
-          loadingType: 'spinner',
-          message: '加载中...'
-        })
+        // Toast.loading({
+        //   duration: 0, // 持续展示 toast
+        //   forbidClick: true, // 禁用背景点击
+        //   loadingType: 'spinner',
+        //   message: '加载中...'
+        // })
       }
       fly.post(url, params).then(function (response) {
         if (process.env.NODE_ENV !== 'production') {
           console.log(response)
         }
-        Toast.clear()
+        // Toast.clear()
         resolve(response)
       }).catch(function (error) {
-        Toast.clear()
+        // Toast.clear()
         reject(error)
       })
     })
