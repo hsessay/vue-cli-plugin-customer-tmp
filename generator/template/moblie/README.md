@@ -10,7 +10,7 @@
 ## 如何运行
 
 ```
-npm run serve 
+npm run serve // 开发环境
 ```
  
 ## 如何打包
@@ -19,6 +19,7 @@ npm run serve
 npm run build // 生产环境
 npm run build:sit // sit环境
 npm run build:uat // uat环境
+npm run build:preprod // 预生产环境
 ```
   
 
