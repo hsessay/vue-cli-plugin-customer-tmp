@@ -5,6 +5,7 @@
 import Fly from 'flyio/dist/npm/fly'
 // import { Toast } from 'vant'
 import config from '../config'
+let Base64 = require('js-base64').Base64
 
 const fly = new Fly()
 fly.baseURL = config.api

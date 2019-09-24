@@ -2,8 +2,9 @@
 <template>
   <div>
     <img src="../../assets/images/xd-home-banner.png" width="100%">
+    <verify-code-cmpt ref="getInput" v-on:getVerifyCode="getVerifyCodeAction"/>
     <div class="xd_btn_t">
-      <el-button type="primary" @click="login">登录</el-button>
+      <van-button type="primary" size="normal" @click="login">登录</van-button>
       <div class="xd_fz_12 reg_t">
         没有账号，
         <a href="javascript:;" @click="toRegisterPage">去注册</a>
@@ -15,11 +16,11 @@
 <script>
 // 这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 // 例如：import 《组件名称》 from '《组件路径》';
-import { getVerifyCode } from '../../api/common-service'
-
+import VerifyCodeCmpt from './components/VerifyCodeCmpt'
 export default {
   // import引入的组件需要注入到对象中才能使用
   components: {
+    VerifyCodeCmpt
   },
   data () {
     // 这里存放数据
@@ -36,26 +37,25 @@ export default {
   // 方法集合
   methods: {
     toRegisterPage () {
+      this.$router.push({ path: 'register' }) // 这里可以配置参数，具体参考官网
     },
     login () {
-      console.log('登录')
-      // var phoneNum = this.$refs.getInput.phoneNumber;
-      // var verifyCode = this.$refs.getInput.verifyCode;
-      // var errMsg = "";
+      // var phoneNum = this.$refs.getInput.phoneNumber
+      var verifyCode = this.$refs.getInput.verifyCode
+      var errMsg = ''
 
-      // if (verifyCode.length === 0) {
-      //   errMsg = "请输入验证码";
-      // }
+      if (verifyCode.length === 0) {
+        errMsg = '请输入验证码'
+      }
 
-      // if (errMsg.length > 0) {
-      //   this.$dialog.alert({
-      //     title: "信息错误",
-      //     message: errMsg,
-      //     confirmButtonText: "知道了"
-      //   });
-      //   return;
-      // }
-      // var _this = this;
+      if (errMsg.length > 0) {
+        this.$dialog.alert({
+          title: '信息错误',
+          message: errMsg,
+          confirmButtonText: '知道了'
+        })
+      }
+      // var _this = this
       // msgLoginService(phoneNum, this.codeId, verifyCode)
       //   .then(function(res) {
       //     _this.$store.commit("updateUserInfo", res);
@@ -73,12 +73,12 @@ export default {
     },
 
     getVerifyCodeAction () {
-      this.phoneNum = this.$refs.getInput.phoneNumber
-      var _this = this
-      getVerifyCode(this.phoneNum)
-        .then(function (resp) {
-          _this.codeId = resp.sessionId
-        })
+      // this.phoneNum = this.$refs.getInput.phoneNumber
+      // var _this = this
+      // getVerifyCode(this.phoneNum)
+      //   .then(function(resp) {
+      //     _this.codeId = resp.sessionId;
+      //   })
     }
   }
 }

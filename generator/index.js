@@ -24,6 +24,7 @@ module.exports = (api, options, rootOptions) => {
       'nprogress': '>=0.2.0',
       'countup': '>=1.8.2', 
       'vue-qr': '>=1.5.2',
+      "js-base64": "^2.5.1",
     }
   })
   let platformDependecies = {}
