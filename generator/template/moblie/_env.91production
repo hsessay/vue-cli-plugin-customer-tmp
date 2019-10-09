@@ -1,0 +1,3 @@
+NODE_ENV=91production
+VUE_APP_DOMAIN=http://www.91hanhua.com
+VUE_APP_BASEURL=/vue/tong/v1
