@@ -138,9 +138,26 @@ export function getUserInfo (token) {
 }
 /* ****************************** private *******************************/
 // 保存登录信息，设置请求头
-function saveUserInfo (res) {
+function saveUserInfo (res, notSend) {
   if (res.success) {
     network.setHeaderAuth(res.model.loginToken)
     Vue.prototype.$userInfo = res.model
   }
+
+  let params = {
+    'mobile': res.model.mobile,
+    'loginToken': res.model.loginToken,
+    'sessionId': res.model.sessionId,
+    'openId': res.model.openId
+  }
+  util.session.setItem('userCenterData', params)
+
+  if (notSend) {
+    return
+  }
+
+  // 发送用户信息
+  return setUserContext(params).then(response => {
+    return response
+  })
 }

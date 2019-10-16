@@ -5,6 +5,7 @@
 import Fly from 'flyio/dist/npm/fly'
 import { Toast } from 'vant'
 import config from '../config'
+import { Base64 } from 'js-base64'
 
 const fly = new Fly()
 fly.baseURL = config.api
@@ -23,7 +24,6 @@ function _appCtx () {
 fly.interceptors.request.use(request => {
   let hhtAppCtx = Base64.encode(_appCtx())
   fly.config.headers['HHTAPPCTX'] = hhtAppCtx
-  // fly.config.headers['Cookie'] = Base64.encode(_appCtx()) // 拒绝设置Cookie!!!
   document.cookie = 'HHTAPPCTX=' + hhtAppCtx + '; path=/'
   return request
 })

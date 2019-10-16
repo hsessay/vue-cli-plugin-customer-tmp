@@ -25,33 +25,23 @@ const router = new Router({
 
 // 全局前置路由权鉴
 router.beforeEach((to, from, next) => {
+  let openid = to.query.openid || '';
+  if (openid) {
+    util.session.setItem('OPEN_ID', openid, true);
+    setUserContext({openId:openid}).then(()=>{});
+  }
   if (!to.meta.noLoginAuth && !Vue.prototype.$userInfo) {
-    let { openid, token } = to.query
-    let loginPath = `${config.api}${config.basePath}/login?redirect=${config.orginUrl}${config.originBasePath}${to.fullPath}`
-    if (openid) {
-      // opneid登陆
-      openIdLogin(openid).then(res => {
-        if (res.success) {
-          Vue.prototype.$userInfo = res.model
-          next()
-        } else {
-          window.location.href = loginPath
-        }
-      })
-    } else if (token) {
+    let token = to.query.token
+    let loginPath = `${config.orginUrl}${config.basePath}/login?redirect=${encodeURIComponent(location.href)}`;
+    if(to.meta.needIdNo){
+      loginPath += `&needIdNo=${to.meta.needIdNo}`
+    }
+    if (token) {
       // token登录
-      getUserInfo(token).then(res => {
-        if (res.success) {
-          Vue.prototype.$userInfo = res.model
-          console.log(Vue.prototype.$userInfo)
-          next()
-        } else {
-          window.location.href = loginPath
-        }
-      }).catch((err) => {
-        console.log(err)
-        window.location.href = loginPath
-      })
+      loginWithToken(token,next,loginPath)
+    } else if (openid && openid.length > 0) {
+      // opneid登陆
+      loginWithOpenId(openid,next,loginPath)
     } else {
       window.location.href = loginPath
     }
@@ -60,4 +50,34 @@ router.beforeEach((to, from, next) => {
   }
 })
 
+function loginWithToken(token,next,loginPath) {
+  getUserInfo(token).then(res => {
+    if (res.success) {
+      Vue.prototype.$userInfo = res.model
+      console.log(Vue.prototype.$userInfo)
+      next()
+    } else {
+      Toast(res.message || '网络错误')
+      setTimeout(() => {
+        window.location.href = loginPath
+      }, 1800);
+    }
+  }).catch(() => {
+    window.location.href = loginPath
+  })
+}
+
+function loginWithOpenId(openid,next,loginPath) {
+  openIdLogin(openid).then(res => {
+    if (res.success) {
+      Vue.prototype.$userInfo = res.model
+      next()
+    } else {
+      Toast(res.message || '网络错误')
+      setTimeout(() => {
+        window.location.href = loginPath
+      }, 1800);
+    }
+  })
+}
 export default router
