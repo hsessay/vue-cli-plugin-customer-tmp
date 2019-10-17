@@ -25,14 +25,14 @@ const router = new Router({
 
 // 全局前置路由权鉴
 router.beforeEach((to, from, next) => {
-  let openid = to.query.openid || '';
+  let openid = to.query.openid || ''
   if (openid) {
-    util.session.setItem('OPEN_ID', openid, true);
-    setUserContext({openId:openid}).then(()=>{});
+    util.session.setItem('OPEN_ID', openid, true)
+    setUserContext({openId:openid}).then(()=>{})
   }
   if (!to.meta.noLoginAuth && !Vue.prototype.$userInfo) {
     let token = to.query.token
-    let loginPath = `${config.orginUrl}${config.basePath}/login?redirect=${encodeURIComponent(location.href)}`;
+    let loginPath = `${config.orginUrl}${config.basePath}/login?redirect=${encodeURIComponent(location.href)}`
     if(to.meta.needIdNo){
       loginPath += `&needIdNo=${to.meta.needIdNo}`
     }
@@ -60,7 +60,7 @@ function loginWithToken(token,next,loginPath) {
       Toast(res.message || '网络错误')
       setTimeout(() => {
         window.location.href = loginPath
-      }, 1800);
+      }, 1800)
     }
   }).catch(() => {
     window.location.href = loginPath
@@ -76,7 +76,7 @@ function loginWithOpenId(openid,next,loginPath) {
       Toast(res.message || '网络错误')
       setTimeout(() => {
         window.location.href = loginPath
-      }, 1800);
+      }, 1800)
     }
   })
 }

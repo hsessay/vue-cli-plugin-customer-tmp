@@ -36,6 +36,9 @@ export default {
   // 获取微信签名信息
   getWxSignature: '/tong2/weixin/getSignature',
   // 绑定微信
-  bindWx: '/tong2/tong/binding/bindwx'
+  bindWx: '/tong2/tong/binding/bindwx',
+
+  /** ****************** 用户中心相关模块 ******************/
+  userContext: '/api/user/context'
 
 }

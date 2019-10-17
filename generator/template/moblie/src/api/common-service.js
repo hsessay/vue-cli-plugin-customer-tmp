@@ -7,7 +7,7 @@ import commonApi from './common-api'
 import network from './network'
 import util from '../assets/js/common'
 import Vue from 'vue'
-
+import { setUserContext } from '../logic/logic.1199.1218'
 /* **************************** 登录相关 *******************************/
 
 // 密码登陆
