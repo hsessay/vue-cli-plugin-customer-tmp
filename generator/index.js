@@ -32,9 +32,16 @@ module.exports = (api, options, rootOptions) => {
   if (options.moblie) { 
     api.extendPackage({
       dependencies: { 
+        "@htong/access-control-manager": "^1.0.8",
+        "@htong/common": "^1.0.21",
+        "@htong/dialog": "^1.0.8",
+        "@htong/networks": "^1.0.14",
+        "@htong/upload": "^1.0.2",
+        "@htong/verification": "^1.0.21",
         'weixin-js-sdk': '^1.4.0-test',
         'vconsole': '>=3.3.0',
         'vant': '>=2.1.1', 
+        
       }
     })  
   } else {
