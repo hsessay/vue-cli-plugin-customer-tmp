@@ -3,12 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Vconsole from 'vconsole'
-import WXConfig from './assets/js/weixin'
+// import WXConfig from './assets/js/weixin'
 import VantComponents from './assets/js/vant-components'
 // import './assets/js/base64.min'
 
 // 微信分享
-Vue.prototype.WXConfig = WXConfig
+// Vue.prototype.WXConfig = WXConfig
 
 if (process.env.NODE_ENV !== 'production') {
   const vConsole = new Vconsole()
