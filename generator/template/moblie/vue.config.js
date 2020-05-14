@@ -73,6 +73,7 @@ module.exports = {
       }
     }
   },
+  transpileDependencies: ['@htong/common', '@htong/networks', '@htong/verification'],
   /**
    * 本地代理配置
    * 完整选项：https://github.com/chimurai/http-proxy-middleware#proxycontext-config

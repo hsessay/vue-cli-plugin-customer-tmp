@@ -4,7 +4,7 @@ import Router from 'vue-router'
 // import { Toast } from 'vant'
 // import { openIdLogin, getUserInfo } from './api/common-service'
 // import config from './config'
-import manager from '@htong/access-control-manager'
+// import manager from '@htong/access-control-manager'
 
 Vue.use(Router)
 
@@ -27,12 +27,13 @@ const router = new Router({
 
 // 全局前置路由权鉴
 router.beforeEach((to, from, next) => {
-  if (to.name === 'empty') {
-    let domain = process.env.VUE_APP_DOMAIN
-    window.location.href = domain
-    return
-  }
-  manager.routerFullIntercept(to, from, next)
+  next()
+  // if (to.name === 'empty') {
+  //   let domain = process.env.VUE_APP_DOMAIN
+  //   window.location.href = domain
+  //   return
+  // }
+  // manager.routerFullIntercept(to, from, next)
 
 
   // if (!to.meta.noLoginAuth && !Vue.prototype.$userInfo) {
