@@ -10,7 +10,9 @@ import VantComponents from './assets/js/vant-components'
 // 微信分享
 // Vue.prototype.WXConfig = WXConfig
 
-if (process.env.NODE_ENV !== 'production') {
+const isDebug = util.stringToObject(document.location.href).isDebug === '1'
+if (process.env.NODE_ENV !== 'production' || isDebug) {
+// if (isDebug) {
   const vConsole = new Vconsole()
   Vue.use(vConsole)
   Vue.config.productionTip = false
