@@ -18,7 +18,7 @@
   </div>
 </template> 
 <script> 
-import utils from "@assets/js/common.js";
+import utils from "@assets/js/common.js"
 
 export default { 
   components: { 
@@ -33,36 +33,36 @@ export default {
       checked: false,
       sendVerifyCode: true,
       seconds: 0
-    };
+    }
   },
   methods: {
     getCode() {
-      this.$refs.phoneField.blur();
-      this.$refs.codeField.blur();
+      this.$refs.phoneField.blur()
+      this.$refs.codeField.blur()
       if (!utils.isPhoneNo(this.phoneNumber)) {
         this.$dialog.alert({
           title: "信息错误",
           message: "请输入正确的手机号",
           confirmButtonText: "知道了"
-        });
-        return;
+        })
+        return
       }
-      this.sendVerifyCode = false;
-      this.seconds = 60;
+      this.sendVerifyCode = false
+      this.seconds = 60
       var timer = setInterval(() => {
-        this.seconds--;
+        this.seconds--
         if (this.seconds <= 0) {
-          this.sendVerifyCode = true;
-          clearInterval(timer);
+          this.sendVerifyCode = true
+          clearInterval(timer)
         }
-      }, 1000);
+      }, 1000)
       this.$once("hook:beforeDestroy", () => {
-        clearInterval(timer);
-      });
-      this.$emit("getVerifyCode");
+        clearInterval(timer)
+      })
+      this.$emit("getVerifyCode")
     }
   }
-};
+}
 </script>
 <style lang='scss'>
 //@import url(); 引入公共css类

@@ -12,6 +12,6 @@ export default {
       .use(DatetimePicker).use(Field).use(Picker).use(RadioGroup).use(Radio)
       .use(Search).use(Slider).use(Stepper).use(Switch).use(SwitchCell)
       .use(Uploader).use(ActionSheet).use(Dialog).use(Loading).use(CellGroup)
-      .use(Swipe).use(SwipeItem).use(NavBar).use(Tab).use(Tabs).use(Tag);
+      .use(Swipe).use(SwipeItem).use(NavBar).use(Tab).use(Tabs).use(Tag)
   }
 }
