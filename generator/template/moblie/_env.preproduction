@@ -1,3 +1,0 @@
-NODE_ENV=preproduction
-VUE_APP_DOMAIN=http://www.hanhuatong.com.cn
-VUE_APP_BASEURL=/vue/tong/v1

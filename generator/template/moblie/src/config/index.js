@@ -8,14 +8,6 @@ const modeUrlObj = {
     downloadUrl: '',
     uploadUrl: ''
   },
-  // 预生产环境
-  preproduction: {
-    orginUrl: window.location.origin,
-    domain: location.protocol + '//www.hanhuatong.com.cn',
-    basePath: process.env.VUE_APP_BASEURL,
-    downloadUrl: '',
-    uploadUrl: ''
-  },
   // 开发环境
   development: {
     orginUrl: window.location.origin,
