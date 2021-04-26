@@ -73,40 +73,15 @@ module.exports = {
       }
     }
   },
-  transpileDependencies: ['@htong/common', '@htong/networks', '@htong/verification'],
+  transpileDependencies: ['@htong/net'],
   /**
    * 本地代理配置
    * 完整选项：https://github.com/chimurai/http-proxy-middleware#proxycontext-config
    */
   devServer: {
     proxy: {
-      '/esb': {
-        target: 'http://htsit.hanhua.com' // http://t.hanhua.com
-        // target: 'http://t.hanhua.com'
-      },
-      '/api': {
+      '/apiproxy': {
         target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-      },
-      '/tong2': {
-        target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-      },
-      '/dcloud': {
-        target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-      },
-      '/hhcrq-api': {
-        target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-      },
-      '/anshuo-api': {
-        target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-        // target: 'http://10.10.80.206:9085'
-      },
-      '/perbank': {
-        target: 'http://10.10.80.78:9082'
       }
     }
   }
