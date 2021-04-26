@@ -40,7 +40,7 @@ module.exports = {
   // publicPath: process.env.NODE_ENV === 'development' ? '/' : '/vue/tong/v1',
   publicPath: process.env.VUE_APP_BASEURL,
   filenameHashing: true,
-  productionSourceMap: (process.env.NODE_ENV !== 'production') && (process.env.NODE_ENV !== 'preproduction'),
+  productionSourceMap: false,
   chainWebpack: config => {
     // 添加分析工具
     if (process.env.NODE_ENV === 'production') {
@@ -64,6 +64,8 @@ module.exports = {
       .set('@assets', resolve('/src/assets'))
       .set('@comps', resolve('src/components'))
       .set('@views', resolve('src/views'))
+      .set('@js', resolve('src/assets/js/*'))
+      .set('@config', resolve('src/config/*'))
   },
   css: {
     loaderOptions: {
