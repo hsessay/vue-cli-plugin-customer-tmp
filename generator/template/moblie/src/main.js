@@ -3,14 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Vconsole from 'vconsole'
-// import WXConfig from './assets/js/weixin'
 import VantComponents from './assets/js/vant-components'
-// import './assets/js/base64.min'
+import utils from '@htong/common'
 
-// 微信分享
-// Vue.prototype.WXConfig = WXConfig
-
-const isDebug = util.stringToObject(document.location.href).isDebug === '1'
+const isDebug = utils.stringToObject(document.location.href).isDebug === '1'
 if (process.env.NODE_ENV !== 'production' || isDebug) {
 // if (isDebug) {
   const vConsole = new Vconsole()
@@ -20,7 +16,6 @@ if (process.env.NODE_ENV !== 'production' || isDebug) {
 // vant组件集合
 Vue.use(VantComponents)
 
-// let vue =
 new Vue({
   store,
   router,

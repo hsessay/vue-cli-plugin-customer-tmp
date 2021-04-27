@@ -33,6 +33,7 @@ module.exports = (api, options, rootOptions) => {
     api.extendPackage({
       dependencies: { 
         "@htong/net": "^1.0.4",
+        "@htong/common": "^1.0.27",
         'weixin-js-sdk': '^1.4.0-test',
         'vconsole': '>=3.3.0',
         'vant': '>=2.1.1', 
