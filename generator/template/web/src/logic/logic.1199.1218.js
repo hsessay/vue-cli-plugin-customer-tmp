@@ -8,11 +8,11 @@
  *    2.3 上述4个字段，有值即传值，无值则传空
  * 3、调用/api/user/context时，将相关参数以'userCenterData'为key，存入storage中
  */
-import network from '../api/network';
-import comApi from '../api/common-api';
+import network from '../api/network'
+import comApi from '../api/common-api'
 
-export function setUserContext(params) {
-    return network.post(comApi.userContext, params).then(res => {
-        return res;
-    })
-} 
+export function setUserContext (params) {
+  return network.post(comApi.userContext, params).then(res => {
+    return res
+  })
+}

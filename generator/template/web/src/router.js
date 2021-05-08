@@ -14,63 +14,20 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: { path: '/empty' }
+      redirect: { path: '/home' }
       // meta: { noLoginAuth: true }
     },
     {
-      path: '/empty',
-      name: 'empty',
-      component: () => import('./components/EmptyView.vue')
-    },
+      path: '/home',
+      name: 'home',
+      component: () => import('@views/home/home.vue')
+    }
   ]
 })
 
 // 全局前置路由权鉴
-router.beforeEach((to, from, next) => {
-  next()
-  // if (to.name === 'empty') {
-  //   let domain = process.env.VUE_APP_DOMAIN
-  //   window.location.href = domain
-  //   return
-  // }
-  // manager.routerFullIntercept(to, from, next)
-
-
-  // if (!to.meta.noLoginAuth && !Vue.prototype.$userInfo) {
-  //   let { openid, token } = to.query
-  //   let loginPath = `${config.api}${config.basePath}/login?redirect=${config.orginUrl}${config.originBasePath}${to.fullPath}`
-  //   if (openid) {
-  //     // opneid登陆
-  //     openIdLogin(openid).then(res => {
-  //       if (res.success) {
-  //         Vue.prototype.$userInfo = res.model
-  //         next()
-  //       } else {
-  //         Toast(res.message || '网络错误')
-  //         window.location.href = loginPath
-  //       }
-  //     })
-  //   } else if (token) {
-  //     // token登录
-  //     getUserInfo(token).then(res => {
-  //       if (res.success) {
-  //         Vue.prototype.$userInfo = res.model
-  //         console.log(Vue.prototype.$userInfo)
-  //         next()
-  //       } else {
-  //         Toast(res.message || '网络错误')
-  //         window.location.href = loginPath
-  //       }
-  //     }).catch((err) => {
-  //       console.log(err)
-  //       window.location.href = loginPath
-  //     })
-  //   } else {
-  //     window.location.href = loginPath
-  //   }
-  // } else {
-  //   next()
-  // }
-})
+// router.beforeEach((to, from, next) => {
+//   next()
+// })
 
 export default router

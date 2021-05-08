@@ -1,14 +1,14 @@
 <template>
-  <div id="app"> 
+  <div id="app">
     <router-view></router-view>
   </div>
 </template>
-<script> 
+<script>
 
-export default { 
+export default {
   methods: {
-     
-  }, 
+
+  }
 }
 </script>
 

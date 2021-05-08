@@ -21,7 +21,6 @@ export function xdpartner (params, config, datas) {
   })
 }
 
-
 function emptyTkInfo (res) {
   if (res.code === 401) { // token 过期
     Toast('登录信息失效，请重新登录')
