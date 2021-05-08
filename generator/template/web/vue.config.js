@@ -40,7 +40,7 @@ module.exports = {
   // publicPath: process.env.NODE_ENV === 'development' ? '/' : '/vue/tong/v1',
   publicPath: process.env.VUE_APP_BASEURL,
   filenameHashing: true,
-  productionSourceMap: (process.env.NODE_ENV !== 'production') && (process.env.NODE_ENV !== 'preproduction'),
+  productionSourceMap: false,
   chainWebpack: config => {
     // 添加分析工具
     if (process.env.NODE_ENV === 'production') {
@@ -64,6 +64,8 @@ module.exports = {
       .set('@assets', resolve('/src/assets'))
       .set('@comps', resolve('src/components'))
       .set('@views', resolve('src/views'))
+      .set('@js', resolve('src/assets/js/*'))
+      .set('@config', resolve('src/config/*'))
   },
   css: {
     loaderOptions: {
@@ -73,39 +75,15 @@ module.exports = {
       }
     }
   },
+  transpileDependencies: ['@htong/net'],
   /**
    * 本地代理配置
    * 完整选项：https://github.com/chimurai/http-proxy-middleware#proxycontext-config
    */
   devServer: {
     proxy: {
-      '/esb': {
-        target: 'http://htsit.hanhua.com' // http://t.hanhua.com
-        // target: 'http://t.hanhua.com'
-      },
-      '/api': {
+      '/apiproxy': {
         target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-      },
-      '/tong2': {
-        target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-      },
-      '/dcloud': {
-        target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-      },
-      '/hhcrq-api': {
-        target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-      },
-      '/anshuo-api': {
-        target: 'http://htsit.hanhua.com'
-        // target: 'http://t.hanhua.com'
-        // target: 'http://10.10.80.206:9085'
-      },
-      '/perbank': {
-        target: 'http://10.10.80.78:9082'
       }
     }
   }

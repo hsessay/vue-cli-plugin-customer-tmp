@@ -16,13 +16,12 @@ module.exports = (api, options, rootOptions) => {
   // 项目依赖
   api.extendPackage({
     dependencies: {
+      "@htong/net": "^1.0.4",
+      "@htong/common": "^1.0.27",
       'vue-router': '^3.0.1',
       'vuex': '^3.0.1',
       'normalize.css': '^8.0.0',
-      'flyio': '>=0.6.14',
-      "lodash": ">=4.17.15", 
       'nprogress': '>=0.2.0',
-      'countup': '>=1.8.2', 
       'vue-qr': '>=1.5.2',
       "js-base64": "^2.5.1",
     }
@@ -32,10 +31,9 @@ module.exports = (api, options, rootOptions) => {
   if (options.moblie) { 
     api.extendPackage({
       dependencies: { 
-        "@htong/net": "^1.0.4",
-        "@htong/common": "^1.0.27",
         'weixin-js-sdk': '^1.4.0-test',
         'vconsole': '>=3.3.0',
+        'flyio': '>=0.6.14',
         'vant': '>=2.1.1', 
         
       }
